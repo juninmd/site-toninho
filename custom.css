@@ -2522,3 +2522,25 @@ iframe{
     right: 10px;
     top: -10px;
 }
+/* CTA Section */
+.cta-section {
+    margin-top: 40px;
+}
+.cta-title {
+    margin-bottom: 20px;
+}
+
+/* Custom Form Select */
+.form-select-custom {
+    margin-bottom: 10px;
+    height: 46px;
+    border: 1px solid #EEE;
+}
+
+.btn-main:hover{
+    background: #EE3B24;
+    border-color: #EE3B24;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
