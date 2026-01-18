@@ -2544,3 +2544,49 @@ iframe{
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
+/* FAQ Styles */
+.panel-default > .panel-heading {
+    background-color: #fff;
+    border-color: #ddd;
+    color: #333;
+}
+.panel-title a {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+}
+.panel-title a:hover {
+    color: #EE3B24;
+}
+
+/* Benefits Section */
+.benefits-section {
+    margin-top: 50px;
+}
+.service-item {
+    padding: 30px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.service-item h4 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Premium Package Highlight */
+.premium-plan {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(238, 59, 36, 0.2);
+    border: 2px solid #EE3B24;
+}
+.premium-plan .plan {
+    background-color: #EE3B24 !important;
+}
