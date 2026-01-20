@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: List files
+        run: ls -R
+
+      - name: Check for index.html
+        run: |
+          if [ -f index.html ]; then
+            echo "index.html found"
+          else
+            echo "index.html not found"
+            exit 1
+          fi
