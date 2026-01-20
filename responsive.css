@@ -118,9 +118,13 @@
 	.hero-text{
 		width: 95%;
 	}
-	.hero-title{
-		font-size: 36px;
+	.hero-title, .hero-title-surreal {
+		font-size: 80px; /* Fixed size for tablet instead of massive vw */
 	}
+    .hero-subtitle-surreal {
+        font-size: 18px; /* Fixed readable size */
+        letter-spacing: 5px;
+    }
 	.hero-buttons a.btn {
 		padding: 10px 20px;
 	}
@@ -228,8 +232,18 @@
 	    margin-top: -16px;
 	}
 
+    /* Hero adjustments for mobile */
+    .hero-title-surreal {
+        font-size: 48px; /* Reasonable size for mobile */
+        letter-spacing: -2px;
+    }
+    .hero-subtitle-surreal {
+        font-size: 14px; /* Ensure readability */
+        letter-spacing: 3px;
+    }
+
 	.feature_title {
-    	width: 60%;
+	width: 80%; /* Increased width for better wrapping */
     	font-size: 30px;
 	}
 	.feature_content .btn-main{
