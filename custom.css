@@ -714,3 +714,103 @@ section {
     color: #888;
     font-size: 14px;
 }
+
+/* ----------------------------------------------------------------------------------- */
+/* SALES OPTIMIZATION STYLES
+/* ----------------------------------------------------------------------------------- */
+
+/* Pulse Animation for WhatsApp */
+.pulse-button {
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+/* Scarcity Alert */
+.scarcity-alert {
+    color: #ff4d4d;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ff4d4d;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(255, 77, 77, 0.1);
+}
+
+.scarcity-alert i {
+    margin-right: 8px;
+}
+
+/* Trust Signals */
+.trust-signals {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.trust-signals ul {
+    margin: 0;
+    padding: 0;
+}
+
+.trust-signals li {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 15px;
+}
+
+.trust-signals li i {
+    color: #fff; /* Icon color */
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Mobile adjustments for trust signals */
+@media (max-width: 767px) {
+    .trust-signals li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Pricing Refinements for Sales Optimization */
+.premium-card {
+    border-color: rgba(212, 175, 55, 0.5); /* Gold tint */
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+.badge-gold {
+    background: #d4af37;
+    color: #000;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+
+.btn-gold {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #000;
+}
+
+.btn-gold:hover {
+    background: transparent;
+    color: #d4af37;
+}
