@@ -814,3 +814,74 @@ section {
     background: transparent;
     color: #d4af37;
 }
+
+/* Stats Section */
+.stats-section {
+    padding: 80px 0;
+    background: #000;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+.stat-item {
+    margin-bottom: 20px;
+}
+
+.stat-item .counter {
+    font-family: 'Italiana', serif;
+    font-size: 48px;
+    color: #fff;
+    display: block;
+}
+
+.stat-item p {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* Mobile Sticky Bar */
+.mobile-sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    display: flex;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+}
+
+.sticky-btn {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.sticky-btn:hover, .sticky-btn:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sticky-whatsapp {
+    background: #25d366;
+}
+
+.sticky-quote {
+    background: #000;
+    border-left: 1px solid #333;
+}
+
+@media (min-width: 768px) {
+    .mobile-sticky-bar {
+        display: none;
+    }
+}

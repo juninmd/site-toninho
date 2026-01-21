@@ -7,8 +7,8 @@
     <!-- Basic Page Needs
     ================================================== -->
         <meta charset="utf-8">
-        <title>Toninho Fotos e Filmagens - Arte & Eternidade</title>
-        <meta name="description" content="Registre seus melhores momentos com Toninho Fotos e Filmagens. Especialistas em casamentos, 15 anos e eventos corporativos. Solicite seu orçamento hoje!">
+        <title>Toninho Fotos e Filmagens - Orçamento para Casamentos e Eventos</title>
+        <meta name="description" content="Fotografia e Filmagem profissional para Casamentos, 15 Anos e Corporativo. Pacotes a partir de R$ 500. Solicite seu orçamento grátis hoje!">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
@@ -55,6 +55,39 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+
+        <!-- Schema.org Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Photographer",
+          "name": "Toninho Fotos e Filmagens",
+          "image": "https://toninhofotosefilmagens.com.br/fotoAntonio.jpg",
+          "description": "Fotografia e Filmagem profissional para Casamentos, 15 Anos e Corporativo.",
+          "url": "https://toninhofotosefilmagens.com.br",
+          "telephone": "+5511999999999",
+          "priceRange": "R$ 500 - R$ 5000",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Paulo",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "20:00"
+          }
+        }
+        </script>
     </head>
 
  <body data-spy="scroll" data-target=".navbar-fixed-top">
@@ -169,8 +202,39 @@
         </div>  <!-- Container End -->
     </section>
 <!-- Service Area End -->
- 
- 
+
+<!-- Stats Section Start -->
+<section id="stats" class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 col-xs-6" data-aos="fade-up">
+                <div class="stat-item">
+                    <span class="counter">28</span>
+                    <p>Anos de História</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
+                    <span class="counter">1500</span>
+                    <p>Casamentos</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-item">
+                    <span class="counter">1000000</span>
+                    <p>Fotos Entregues</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="stat-item">
+                    <span class="counter">100</span>
+                    <p>% Satisfação</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Stats Section End -->
 
 <div class="clearfix"></div>
  
@@ -594,6 +658,16 @@
         <i class="fa fa-whatsapp"></i>
     </a>
 
+    <!-- Mobile Sticky Action Bar -->
+    <div class="mobile-sticky-bar visible-xs">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="sticky-btn sticky-whatsapp" target="_blank">
+            <i class="fa fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="#contact" class="sticky-btn sticky-quote">
+            <i class="fa fa-envelope"></i> Orçamento
+        </a>
+    </div>
+
 <!-- Javascript Files
     ================================================== -->
     <!-- initialize jQuery Library -->
@@ -665,6 +739,12 @@
 
                 // Initialize WOW
                 new WOW().init();
+
+                // Initialize Counter
+                $('.counter').counterUp({
+                    delay: 10,
+                    time: 1000
+                });
 
                 // Initialize Owl Carousel for Team
                 $("#owl-demo").owlCarousel({
