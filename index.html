@@ -23,6 +23,11 @@
     <meta property="business:contact_data:postal_code" content="14400-000">
     <meta property="business:contact_data:country_name" content="Brasil">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
     <!-- CSS -->
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="font-awesome.min.css">
@@ -266,13 +271,13 @@
                     <div class="pricing-card">
                         <div class="pricing-header text-center">
                             <span class="package-name">Essencial</span>
-                            <h3 class="package-price">R$ 500<span>,00</span></h3>
+                            <h3 class="package-price">R$ 1.890<span>,00</span></h3>
                         </div>
                         <ul class="pricing-features text-center">
-                            <li>4 Horas de Cobertura</li>
-                            <li>100 Fotos Tratadas</li>
-                            <li>Entrega Digital</li>
-                            <li>Galeria Online</li>
+                            <li>📸 Cobertura Civil + Ensaio</li>
+                            <li>✨ 150 Fotos em Alta Resolução</li>
+                            <li>☁️ Galeria Online Privada</li>
+                            <li>🖌️ Edição Fine Art</li>
                         </ul>
                         <div class="pricing-footer text-center">
                             <a href="#contact" class="btn btn-cta" onclick="$('#plan-select').val('Essencial')">Selecionar</a>
@@ -285,13 +290,13 @@
                         <div class="best-value-badge">Mais Popular</div>
                         <div class="pricing-header text-center">
                             <span class="package-name">Cinema</span>
-                            <h3 class="package-price">R$ 1.200<span>,00</span></h3>
+                            <h3 class="package-price">R$ 3.590<span>,00</span></h3>
                         </div>
                         <ul class="pricing-features text-center">
-                            <li style="color: #fff;">8 Horas de Cobertura</li>
-                            <li style="color: #fff;">300 Fotos Tratadas</li>
-                            <li>Álbum 20x20cm</li>
-                            <li>Making Of + Drone</li>
+                            <li style="color: #fff;">🚁 Drone 4K + Making Of</li>
+                            <li style="color: #fff;">💍 Cobertura Completa (8h)</li>
+                            <li>📖 Álbum Premium 25x25cm</li>
+                            <li>🎬 Teaser para Instagram</li>
                         </ul>
                         <div class="pricing-footer text-center">
                             <a href="#contact" class="btn btn-cta" onclick="$('#plan-select').val('Cinema')">Selecionar</a>
@@ -303,13 +308,13 @@
                     <div class="pricing-card">
                         <div class="pricing-header text-center">
                             <span class="package-name">Obra Prima</span>
-                            <h3 class="package-price">R$ 2.500<span>,00</span></h3>
+                            <h3 class="package-price">R$ 5.900<span>,00</span></h3>
                         </div>
                         <ul class="pricing-features text-center">
-                            <li>Cobertura Ilimitada</li>
-                            <li>Todas Fotos Tratadas</li>
-                            <li>Álbum Luxo 30x30cm</li>
-                            <li>Pré-Wedding + Drone 4K</li>
+                            <li>♾️ Cobertura Ilimitada</li>
+                            <li>💎 Álbum Luxo 30x30cm (Couro)</li>
+                            <li>👰 Pré-Wedding + Pós-Wedding</li>
+                            <li>🎥 Filme Completo + Drone</li>
                         </ul>
                         <div class="pricing-footer text-center">
                             <a href="#contact" class="btn btn-cta" onclick="$('#plan-select').val('Obra Prima')">Selecionar</a>
@@ -435,6 +440,14 @@
         <i class="fa fa-whatsapp"></i>
     </a>
 
+    <!-- Music Control -->
+    <div id="music-control" class="music-control" title="Música de Fundo">
+        <i class="fa fa-music"></i>
+    </div>
+    <div id="video-container" style="display:none;">
+        <div id="player"></div>
+    </div>
+
     <!-- Mobile Sticky Bar -->
     <div class="mobile-action-bar">
         <a href="https://wa.me/5516999999999" class="action-btn btn-whatsapp-mobile"><i class="fa fa-whatsapp"></i> WhatsApp</a>
@@ -452,7 +465,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
     <script>
+        // YouTube Player API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        var isPlaying = false;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'bcQwIxRcaYs', // A Thousand Years
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'loop': 1,
+                    'playlist': 'bcQwIxRcaYs',
+                    'playsinline': 1
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Attempt to play muted first (browser policy)
+            // User interaction via the music button will unmute/play
+            event.target.setVolume(30);
+        }
+
         $(document).ready(function() {
+            // Music Toggle
+            $('#music-control').click(function() {
+                if (isPlaying) {
+                    player.pauseVideo();
+                    $(this).removeClass('playing');
+                    $(this).find('i').removeClass('fa-volume-up').addClass('fa-music');
+                    isPlaying = false;
+                } else {
+                    player.playVideo();
+                    $(this).addClass('playing');
+                    $(this).find('i').removeClass('fa-music').addClass('fa-volume-up');
+                    isPlaying = true;
+                }
+            });
+
             // Initialize WOW Animations
             new WOW().init();
 
