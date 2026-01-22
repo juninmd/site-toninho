@@ -244,6 +244,16 @@ a:hover, a:focus {
 /* PORTFOLIO GRID
 /* ----------------------------------------------------------------------------------- */
 
+.row-no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.row-no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
 .portfolio-filters {
     text-align: center;
     margin-bottom: 40px;
@@ -293,6 +303,7 @@ a:hover, a:focus {
     width: 100%;
     height: 100%;
     background: rgba(5, 5, 5, 0.85); /* Darker, more solid overlay */
+    border: 1px solid var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -339,18 +350,23 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .pricing-card {
-    background: #111;
+    background: linear-gradient(145deg, #111 0%, #080808 100%);
     border: 1px solid #222;
     padding: 0;
-    transition: all 0.3s;
+    transition: all 0.4s;
     position: relative;
     margin-bottom: 30px;
 }
 
+.pricing-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-10px);
+}
+
 .pricing-header {
-    padding: 40px 20px;
-    background: rgba(255,255,255,0.02);
-    border-bottom: 1px solid #222;
+    padding: 50px 20px;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .package-name {
@@ -398,6 +414,12 @@ a:hover, a:focus {
     border-color: var(--primary-color);
     transform: scale(1.05);
     z-index: 10;
+    background: linear-gradient(145deg, #1a1a1a 0%, #000 100%);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.05) translateY(-5px);
 }
 
 .best-value-badge {
@@ -555,23 +577,24 @@ a:hover, a:focus {
     position: fixed;
     bottom: 30px;
     left: 30px;
-    width: 40px;
-    height: 40px;
-    background: rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.2);
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid var(--primary-color);
     border-radius: 50%;
-    color: #fff;
+    color: var(--primary-color);
     text-align: center;
-    line-height: 40px;
+    line-height: 50px;
     cursor: pointer;
     z-index: 999;
     transition: all 0.3s;
+    animation: pulse-music 2s infinite; /* Pulse by default */
 }
 
 .music-control:hover {
     background: var(--primary-color);
-    border-color: var(--primary-color);
     color: #000;
+    transform: scale(1.1);
 }
 
 .music-control.playing {
@@ -591,4 +614,35 @@ a:hover, a:focus {
         bottom: 80px; /* Above sticky bar */
         left: 20px;
     }
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* PARALLAX SECTION
+/* ----------------------------------------------------------------------------------- */
+
+.parallax-section {
+    background: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax-overlay {
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parallax-quote {
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.4;
+    font-family: 'Playfair Display', serif;
 }
