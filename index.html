@@ -71,6 +71,13 @@
 
 <body data-spy="scroll" data-target=".navbar-custom" data-offset="70">
 
+    <!-- Top Notification Bar -->
+    <div class="top-notification-bar">
+        <div class="container text-center">
+            <p><i class="fa fa-calendar-check-o"></i> Agenda 2025 Aberta: Poucas datas disponíveis para o 2º Semestre.</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top">
         <div class="container">
@@ -88,7 +95,7 @@
                     <li><a class="page-scroll" href="#about">A Essência</a></li>
                     <li><a class="page-scroll" href="#portfolio">Portfólio</a></li>
                     <li><a class="page-scroll" href="#pricing">Investimento</a></li>
-                    <li><a class="page-scroll" href="#contact">Contato</a></li>
+                    <li><a class="page-scroll nav-cta" href="#contact">Solicitar Orçamento</a></li>
                 </ul>
             </div>
         </div>
@@ -514,9 +521,37 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
+                                    <select name="budget" class="form-control form-control-custom form-select-custom">
+                                        <option value="" disabled selected>Investimento Previsto</option>
+                                        <option value="Até 2k">Até R$ 2.000</option>
+                                        <option value="2k-4k">R$ 2.000 - R$ 4.000</option>
+                                        <option value="4k-6k">R$ 4.000 - R$ 6.000</option>
+                                        <option value="6k+">Acima de R$ 6.000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
                                     <textarea name="message" class="form-control form-control-custom" rows="4" placeholder="Detalhes adicionais (local, horário, dúvidas...)"></textarea>
                                 </div>
                             </div>
+
+                            <!-- Trust Badges -->
+                            <div class="trust-badges">
+                                <div class="trust-item">
+                                    <i class="fa fa-file-text-o"></i>
+                                    <span>Contrato Formal</span>
+                                </div>
+                                <div class="trust-item">
+                                    <i class="fa fa-camera"></i>
+                                    <span>Equipamento Backup</span>
+                                </div>
+                                <div class="trust-item">
+                                    <i class="fa fa-clock-o"></i>
+                                    <span>Entrega Garantida</span>
+                                </div>
+                            </div>
+
                             <div class="row text-center mt-30">
                                 <button type="submit" class="btn btn-cta" style="background: var(--primary-color); color: #000; border: none; width: 100%;">Enviar Solicitação</button>
                             </div>
