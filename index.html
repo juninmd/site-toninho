@@ -30,7 +30,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" href="owl.carousel.css">
     <link rel="stylesheet" href="owl.theme.css">
@@ -386,9 +386,9 @@
                                 <div class="col-md-6">
                                     <select id="plan-select" name="package" class="form-control form-control-custom form-select-custom">
                                         <option value="" disabled selected>Tipo de Pacote</option>
-                                        <option value="Essencial">Essencial (R$ 500)</option>
-                                        <option value="Cinema">Cinema (R$ 1.200)</option>
-                                        <option value="Obra Prima">Obra Prima (R$ 2.500)</option>
+                                        <option value="Essencial">Essencial (R$ 1.890)</option>
+                                        <option value="Cinema">Cinema (R$ 3.590)</option>
+                                        <option value="Obra Prima">Obra Prima (R$ 5.900)</option>
                                         <option value="Personalizado">Personalizado</option>
                                     </select>
                                 </div>
@@ -444,7 +444,7 @@
     <div id="music-control" class="music-control" title="Música de Fundo">
         <i class="fa fa-music"></i>
     </div>
-    <div id="video-container" style="display:none;">
+    <div id="video-container" style="position: fixed; top: -9999px; left: -9999px; visibility: hidden;">
         <div id="player"></div>
     </div>
 
@@ -473,18 +473,20 @@
 
         var player;
         var isPlaying = false;
+        var hasInteracted = false;
 
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                height: '0',
-                width: '0',
+                height: '200',
+                width: '200',
                 videoId: 'bcQwIxRcaYs', // A Thousand Years
                 playerVars: {
                     'autoplay': 1,
                     'controls': 0,
                     'loop': 1,
                     'playlist': 'bcQwIxRcaYs',
-                    'playsinline': 1
+                    'playsinline': 1,
+                    'disablekb': 1
                 },
                 events: {
                     'onReady': onPlayerReady
@@ -493,24 +495,45 @@
         }
 
         function onPlayerReady(event) {
-            // Attempt to play muted first (browser policy)
-            // User interaction via the music button will unmute/play
-            event.target.setVolume(30);
+            // Browser policy: Autoplay must be muted
+            event.target.mute();
+            event.target.playVideo();
+            isPlaying = true; // Technically playing, but muted
+
+            // Visual cue that music is "available" but waiting for interaction
+            $('#music-control').addClass('ready-to-play');
         }
 
         $(document).ready(function() {
             // Music Toggle
             $('#music-control').click(function() {
-                if (isPlaying) {
-                    player.pauseVideo();
-                    $(this).removeClass('playing');
-                    $(this).find('i').removeClass('fa-volume-up').addClass('fa-music');
-                    isPlaying = false;
-                } else {
-                    player.playVideo();
+                if (!hasInteracted) {
+                    // First click: Unmute and ensure volume
+                    player.unMute();
+                    player.setVolume(50);
+                    hasInteracted = true;
+
+                    // If it was paused or failed to autoplay
+                    if (player.getPlayerState() !== 1) {
+                        player.playVideo();
+                    }
+
                     $(this).addClass('playing');
                     $(this).find('i').removeClass('fa-music').addClass('fa-volume-up');
                     isPlaying = true;
+                } else {
+                    // Subsequent clicks: Toggle Play/Pause
+                    if (isPlaying) {
+                        player.pauseVideo();
+                        $(this).removeClass('playing');
+                        $(this).find('i').removeClass('fa-volume-up').addClass('fa-music');
+                        isPlaying = false;
+                    } else {
+                        player.playVideo();
+                        $(this).addClass('playing');
+                        $(this).find('i').removeClass('fa-music').addClass('fa-volume-up');
+                        isPlaying = true;
+                    }
                 }
             });
 
@@ -522,7 +545,7 @@
                 var $anchor = $(this);
                 $('html, body').stop().animate({
                     scrollTop: $($anchor.attr('href')).offset().top - 60
-                }, 1500, 'easeInOutExpo');
+                }, 1000, 'swing');
                 event.preventDefault();
             });
 
