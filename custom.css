@@ -291,22 +291,46 @@ a:hover, a:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(5, 5, 5, 0.85); /* Darker, more solid overlay */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.4s;
+    transform: scale(0.9); /* Subtle zoom in effect */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-thumb:hover .portfolio-overlay {
     opacity: 1;
+    transform: scale(1);
 }
 
 .portfolio-overlay h4 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 5px;
+    letter-spacing: 1px;
+    color: #fff;
+    transform: translateY(20px);
+    transition: transform 0.4s 0.1s;
+}
+
+.portfolio-thumb:hover .portfolio-overlay h4 {
+    transform: translateY(0);
+}
+
+.portfolio-overlay p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-color);
+    transform: translateY(20px);
+    transition: transform 0.4s 0.2s;
+}
+
+.portfolio-thumb:hover .portfolio-overlay p {
+    transform: translateY(0);
 }
 
 /* ----------------------------------------------------------------------------------- */
