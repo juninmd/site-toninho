@@ -241,6 +241,42 @@ a:hover, a:focus {
 }
 
 /* ----------------------------------------------------------------------------------- */
+/* BIO SECTION
+/* ----------------------------------------------------------------------------------- */
+
+.bio-row {
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+
+.bio-img {
+    border: 2px solid var(--primary-color);
+    padding: 5px;
+    max-width: 280px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.bio-title {
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+}
+
+.bio-text {
+    color: #ccc;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.bio-signature {
+    margin-top: 30px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+/* ----------------------------------------------------------------------------------- */
 /* PORTFOLIO GRID
 /* ----------------------------------------------------------------------------------- */
 
