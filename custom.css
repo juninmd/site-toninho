@@ -52,18 +52,20 @@ a:hover, a:focus {
     position: relative;
     display: inline-block;
     width: 100%;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .section-subtitle {
     font-family: 'Lato', sans-serif;
     font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 6px; /* Increased spacing for luxury feel */
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 3rem;
     display: block;
     font-weight: 700;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .divider-gold {
@@ -183,18 +185,38 @@ a:hover, a:focus {
     padding: 16px 45px;
     border: 1px solid var(--primary-color);
     color: #fff;
-    background: rgba(212, 175, 55, 0.1);
+    background: transparent;
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 0.75rem;
     font-weight: 700;
-    transition: all 0.3s;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(45deg, #d4af37, #f3e5ab, #d4af37);
+    transition: width 0.4s ease;
+    z-index: -1;
 }
 
 .btn-cta:hover {
-    background: var(--primary-color);
     color: #000;
+    border-color: #f3e5ab;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-cta:hover::before {
+    width: 100%;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -207,17 +229,21 @@ a:hover, a:focus {
 }
 
 .feature-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    padding: 40px 30px;
-    transition: transform 0.3s;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px); /* Enhanced Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px 30px;
+    transition: all 0.4s ease;
     height: 100%;
     text-align: center;
+    border-radius: 4px; /* Slight rounding */
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    border-color: var(--primary-color);
+    border-color: rgba(212, 175, 55, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .feature-icon {
@@ -338,15 +364,16 @@ a:hover, a:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(5, 5, 5, 0.85); /* Darker, more solid overlay */
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(5px); /* Add blur to overlay */
     border: 1px solid var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transform: scale(0.9); /* Subtle zoom in effect */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.95);
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
 }
 
 .portfolio-thumb:hover .portfolio-overlay {
@@ -386,17 +413,20 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .pricing-card {
-    background: linear-gradient(145deg, #111 0%, #080808 100%);
-    border: 1px solid #222;
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 0;
-    transition: all 0.4s;
+    transition: all 0.5s ease;
     position: relative;
     margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .pricing-card:hover {
     border-color: var(--primary-color);
-    transform: translateY(-10px);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.1); /* Subtle gold glow */
 }
 
 .pricing-header {
@@ -450,12 +480,13 @@ a:hover, a:focus {
     border-color: var(--primary-color);
     transform: scale(1.05);
     z-index: 10;
-    background: linear-gradient(145deg, #1a1a1a 0%, #000 100%);
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+    background: rgba(20, 20, 20, 0.8);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.15);
 }
 
 .pricing-card.featured:hover {
-    transform: scale(1.05) translateY(-5px);
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.7), 0 0 40px rgba(212, 175, 55, 0.25);
 }
 
 .best-value-badge {
