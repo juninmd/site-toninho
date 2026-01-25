@@ -7,13 +7,14 @@
 
 :root {
     --primary-color: #d4af37; /* Gold */
-    --bg-dark: #222222;
-    --bg-darker: #1a1a1a;
-    --text-light: #f0f0f0;
-    --text-muted: #999;
-    --overlay-color: rgba(0,0,0,0.7);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-dark: #ffffff; /* White */
+    --bg-darker: #f9f9f9; /* Light Grey */
+    --bg-contrast: #222222; /* Dark Charcoal for contrast sections */
+    --text-light: #333333; /* Dark Text */
+    --text-muted: #666666;
+    --overlay-color: rgba(255,255,255,0.8);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -28,7 +29,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
-    color: #fff;
+    color: #111;
     letter-spacing: 0.03em;
 }
 
@@ -52,7 +53,7 @@ a:hover, a:focus {
     position: relative;
     display: inline-block;
     width: 100%;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .section-subtitle {
@@ -65,7 +66,7 @@ a:hover, a:focus {
     margin-bottom: 3rem;
     display: block;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
 .divider-gold {
@@ -95,7 +96,7 @@ a:hover, a:focus {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .top-notification-bar i {
@@ -107,25 +108,26 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .navbar-custom {
-    background: rgba(30, 30, 30, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border: none;
     padding: 15px 0;
     transition: all 0.4s;
     top: 36px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .navbar-custom .navbar-brand {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    color: #fff;
+    color: #111;
     letter-spacing: 1px;
     font-weight: 700;
     font-style: italic;
 }
 
 .navbar-custom .nav > li > a {
-    color: #fff;
+    color: #111;
     font-family: 'Lato', sans-serif;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -174,7 +176,7 @@ a:hover, a:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, transparent 20%, #0a0a0a 90%);
+    background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.5) 90%);
 }
 
 .hero-content {
@@ -197,7 +199,8 @@ a:hover, a:focus {
     line-height: 1;
     margin-bottom: 20px;
     text-transform: uppercase;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Enhanced depth */
+    text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    color: #fff;
 }
 
 .hero-sub {
@@ -205,14 +208,14 @@ a:hover, a:focus {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto 40px;
-    color: #ccc;
+    color: #ddd;
     font-weight: 300;
 }
 
 .btn-cta {
     padding: 16px 45px;
     border: 1px solid var(--primary-color);
-    color: #fff;
+    color: var(--primary-color);
     background: transparent;
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
@@ -238,7 +241,7 @@ a:hover, a:focus {
 }
 
 .btn-cta:hover {
-    color: #000;
+    color: #fff;
     border-color: #f3e5ab;
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
@@ -248,30 +251,40 @@ a:hover, a:focus {
 }
 
 /* ----------------------------------------------------------------------------------- */
-/* FEATURES / TRUST (Glassmorphism)
+/* SECTIONS & FEATURES
 /* ----------------------------------------------------------------------------------- */
 
 .section-dark {
     padding: 100px 0;
-    background: var(--bg-darker);
+    background: var(--bg-darker); /* Light Grey */
+}
+
+/* New Dark Contrast Section for Stats/FAQ */
+.section-contrast {
+    padding: 100px 0;
+    background: var(--bg-contrast);
+    color: #fff;
+}
+
+.section-contrast h2, .section-contrast h3, .section-contrast h4 {
+    color: #fff;
 }
 
 .feature-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px); /* Enhanced Glassmorphism */
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
     padding: 50px 30px;
     transition: all 0.4s ease;
     height: 100%;
     text-align: center;
     border-radius: 4px; /* Slight rounding */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(212, 175, 55, 0.5);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .feature-icon {
@@ -287,6 +300,7 @@ a:hover, a:focus {
     margin-bottom: 15px;
     letter-spacing: 2px;
     font-weight: 700;
+    color: #333;
 }
 
 .feature-text {
@@ -308,7 +322,7 @@ a:hover, a:focus {
     padding: 5px;
     max-width: 280px;
     margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 .bio-title {
@@ -318,7 +332,7 @@ a:hover, a:focus {
 }
 
 .bio-text {
-    color: #ccc;
+    color: #555;
     margin-top: 20px;
     font-size: 1.1rem;
 }
@@ -334,106 +348,22 @@ a:hover, a:focus {
 /* PORTFOLIO GRID
 /* ----------------------------------------------------------------------------------- */
 
-.row-no-gutters {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.row-no-gutters > [class*="col-"] {
-    padding-right: 0;
-    padding-left: 0;
-}
-
-.portfolio-filters {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.portfolio-filters a {
-    color: var(--text-muted);
-    padding: 5px 15px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    border-bottom: 1px solid transparent;
-    cursor: pointer;
-}
-
-.portfolio-filters a.active, .portfolio-filters a:hover {
-    color: #fff;
-    border-color: var(--primary-color);
-    text-decoration: none;
-}
-
-.isotope-item {
-    margin-bottom: 30px;
-}
-
 .portfolio-thumb {
     position: relative;
     overflow: hidden;
     display: block;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .portfolio-thumb img {
     width: 100%;
     transition: transform 0.6s ease;
-    filter: grayscale(100%);
+    filter: none;
 }
 
 .portfolio-thumb:hover img {
-    transform: scale(1.1);
-    filter: grayscale(0%);
-}
-
-.portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(5, 5, 5, 0.7);
-    backdrop-filter: blur(5px); /* Add blur to overlay */
-    border: 1px solid var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: scale(0.95);
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
-}
-
-.portfolio-thumb:hover .portfolio-overlay {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.portfolio-overlay h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-    color: #fff;
-    transform: translateY(20px);
-    transition: transform 0.4s 0.1s;
-}
-
-.portfolio-thumb:hover .portfolio-overlay h4 {
-    transform: translateY(0);
-}
-
-.portfolio-overlay p {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary-color);
-    transform: translateY(20px);
-    transition: transform 0.4s 0.2s;
-}
-
-.portfolio-thumb:hover .portfolio-overlay p {
-    transform: translateY(0);
+    transform: scale(1.05);
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -441,26 +371,24 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .pricing-card {
-    background: rgba(60, 60, 60, 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Slightly stronger border */
     padding: 0;
     transition: all 0.5s ease;
     position: relative;
     margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Slightly stronger shadow */
 }
 
 .pricing-card:hover {
     border-color: var(--primary-color);
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.1); /* Subtle gold glow */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .pricing-header {
     padding: 50px 20px;
     background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .package-name {
@@ -477,6 +405,7 @@ a:hover, a:focus {
     font-size: 3.5rem;
     margin: 15px 0 5px;
     font-weight: 400;
+    color: #333;
 }
 
 .package-price span {
@@ -491,9 +420,9 @@ a:hover, a:focus {
 
 .pricing-features li {
     padding: 10px 0;
-    border-bottom: 1px solid #1a1a1a;
+    border-bottom: 1px solid #f0f0f0;
     font-size: 0.9rem;
-    color: #ccc;
+    color: #555;
 }
 
 .pricing-features li:last-child {
@@ -508,13 +437,13 @@ a:hover, a:focus {
     border-color: var(--primary-color);
     transform: scale(1.05);
     z-index: 10;
-    background: rgba(20, 20, 20, 0.8);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.15);
+    background: #fff;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
 
 .pricing-card.featured:hover {
-    transform: scale(1.05) translateY(-10px);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.7), 0 0 40px rgba(212, 175, 55, 0.25);
+    transform: scale(1.05);
+    box-shadow: 0 30px 70px rgba(0,0,0,0.2);
 }
 
 .best-value-badge {
@@ -523,7 +452,7 @@ a:hover, a:focus {
     left: 50%;
     transform: translateX(-50%);
     background: var(--primary-color);
-    color: #000;
+    color: #fff;
     padding: 5px 15px;
     font-size: 0.7rem;
     text-transform: uppercase;
@@ -538,26 +467,19 @@ a:hover, a:focus {
 .contact-section {
     background: var(--bg-darker);
     position: relative;
-    border-top: 1px solid #111;
-}
-
-.footer-custom {
-    background: var(--bg-darker);
-    padding: 40px 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid #eee;
 }
 
 .contact-overlay {
-    background: rgba(0,0,0,0.85);
+    background: transparent;
     padding: 100px 0;
 }
 
 .form-control-custom {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #333;
-    border-radius: 0;
-    color: #fff;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #333;
     padding: 25px 10px;
     margin-bottom: 20px;
     font-family: 'Lato', sans-serif;
@@ -566,24 +488,24 @@ a:hover, a:focus {
 }
 
 .form-control-custom:focus {
-    background: transparent;
+    background: #fff;
     border-color: var(--primary-color);
-    box-shadow: none;
-    color: #fff;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    color: #333;
 }
 
 .form-select-custom {
-    color: #888;
+    color: #555;
 }
 
 .form-select-custom option {
-    background: #000;
+    background: #fff;
 }
 
 .highlight-budget {
     border-color: var(--primary-color);
-    background: rgba(212, 175, 55, 0.1);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    background: #fffcf0;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
 }
 
 .trust-badges {
@@ -597,12 +519,12 @@ a:hover, a:focus {
 .trust-item {
     display: flex;
     align-items: center;
-    color: #ccc;
+    color: #555;
     font-size: 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: #fff;
     padding: 10px 15px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #eee;
     margin-bottom: 10px;
 }
 
@@ -623,7 +545,7 @@ a:hover, a:focus {
     width: 100%;
     z-index: 9999;
     display: none; /* Flex on mobile */
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
 }
 
 .action-btn {
@@ -644,7 +566,7 @@ a:hover, a:focus {
 
 .btn-quote-mobile {
     background-color: var(--primary-color);
-    color: #000 !important;
+    color: #fff !important;
 }
 
 @media (max-width: 768px) {
@@ -711,7 +633,7 @@ a:hover, a:focus {
 
     .navbar-custom {
         padding: 10px 0;
-        background: #000;
+        background: #fff;
     }
 }
 
@@ -732,7 +654,7 @@ a:hover, a:focus {
     font-size: 30px;
     color: #fff;
     z-index: 999;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s;
 }
 
@@ -757,7 +679,7 @@ a:hover, a:focus {
     left: 30px;
     width: 50px;
     height: 50px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(255,255,255,0.8);
     border: 1px solid var(--primary-color);
     border-radius: 50%;
     color: var(--primary-color);
@@ -771,13 +693,13 @@ a:hover, a:focus {
 
 .music-control:hover {
     background: var(--primary-color);
-    color: #000;
+    color: #fff;
     transform: scale(1.1);
 }
 
 .music-control.playing {
     background: var(--primary-color);
-    color: #000;
+    color: #fff;
     animation: pulse-music 2s infinite;
 }
 
@@ -826,46 +748,53 @@ a:hover, a:focus {
 }
 
 /* ----------------------------------------------------------------------------------- */
-/* MODAL & DETAILS BUTTONS
+/* FOOTER
 /* ----------------------------------------------------------------------------------- */
 
-.btn-details {
-    color: #ccc;
-    margin-top: 10px;
-    display: block;
+.footer-custom {
+    background: #111; /* Keep dark for contrast */
+    padding: 40px 0;
+    border-top: none;
+    color: #fff;
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* PRICING FLIP CARDS
+/* ----------------------------------------------------------------------------------- */
+
+.card-flip-container {
+    perspective: 1000px;
+    height: 400px; /* Adjust based on content */
+    margin-bottom: 30px;
+}
+
+.card-flipper {
+    position: relative;
     width: 100%;
-    text-decoration: none;
-    transition: color 0.3s;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-.btn-details:hover, .btn-details:focus {
-    color: var(--primary-color);
-    text-decoration: none;
+.card-flipper.flipped {
+    transform: rotateY(180deg);
 }
 
-.pricing-card.featured .btn-details {
-    color: #fff;
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
 }
 
-.pricing-card.featured .btn-details:hover {
-    color: var(--primary-color);
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.modal-content-custom {
-    background: var(--bg-dark);
-    color: #fff;
-    border: 1px solid #444;
-}
-
-.modal-header-custom {
-    border-bottom: 1px solid #444;
-}
-
-.modal-footer-custom {
-    border-top: 1px solid #444;
-}
-
-.modal-title-custom {
-    color: var(--primary-color);
-    font-family: 'Playfair Display', serif;
+.card-back.featured {
+    transform: rotateY(180deg) scale(1.05);
 }
