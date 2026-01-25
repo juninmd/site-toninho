@@ -176,7 +176,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="section-dark" style="background: #050505;">
+    <section id="faq" class="section-dark">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
@@ -237,7 +237,7 @@
     </section>
 
     <!-- Timeline / Process -->
-    <section id="process" class="section-dark" style="background: #080808;">
+    <section id="process" class="section-dark">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
@@ -280,7 +280,7 @@
     </section>
 
     <!-- Stats / Trust -->
-    <section class="section-dark" style="background-color: #000; padding: 60px 0;">
+    <section class="section-dark" style="padding: 60px 0;">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-3 col-xs-6 mb-30">
@@ -304,7 +304,7 @@
     </section>
 
     <!-- Portfolio -->
-    <section id="portfolio" class="section-dark" style="background: #0f0f0f; padding-bottom: 0;">
+    <section id="portfolio" class="section-dark" style="padding-bottom: 0;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -488,6 +488,7 @@
                         </ul>
                         <div class="pricing-footer text-center">
                             <a href="#contact" class="btn btn-cta" onclick="$('#plan-select').val('Essencial')">Verificar Disponibilidade</a>
+                            <button class="btn btn-link btn-details" data-package="Essencial">Mais Detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -507,6 +508,7 @@
                         </ul>
                         <div class="pricing-footer text-center">
                             <a href="#contact" class="btn btn-cta" onclick="$('#plan-select').val('Cinema')">Verificar Disponibilidade</a>
+                            <button class="btn btn-link btn-details" data-package="Cinema">Mais Detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -525,6 +527,7 @@
                         </ul>
                         <div class="pricing-footer text-center">
                             <a href="#contact" class="btn btn-cta" onclick="$('#plan-select').val('Obra Prima')">Verificar Disponibilidade</a>
+                            <button class="btn btn-link btn-details" data-package="Obra Prima">Mais Detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -538,7 +541,7 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="section-dark" style="background: #000;">
+    <section id="testimonials" class="section-dark">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
@@ -663,7 +666,7 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #050505; padding: 40px 0; border-top: 1px solid #111;">
+    <footer class="footer-custom">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
@@ -895,6 +898,52 @@
                             'background' : 'rgba(0,0,0,0.9)'
                         }
                     }
+                }
+            });
+        });
+    </script>
+    <!-- Package Details Modal -->
+    <div class="modal fade" id="packageModal" tabindex="-1" role="dialog" aria-labelledby="packageModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content modal-content-custom">
+          <div class="modal-header modal-header-custom">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style="color: #fff;">&times;</span></button>
+            <h4 class="modal-title modal-title-custom" id="packageModalLabel">Detalhes do Pacote</h4>
+          </div>
+          <div class="modal-body" id="packageModalBody" style="font-family: 'Lato', sans-serif; line-height: 1.8;">
+            <!-- Content injected via JS -->
+          </div>
+          <div class="modal-footer modal-footer-custom">
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="background: transparent; color: #ccc; border: 1px solid #666;">Fechar</button>
+            <a href="#contact" class="btn btn-cta page-scroll" onclick="$('#packageModal').modal('hide');" style="padding: 10px 20px; font-size: 0.8rem;">Solicitar Este Pacote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var packages = {
+                "Essencial": {
+                    title: "Pacote Essencial - Detalhes",
+                    description: "<p>O pacote perfeito para quem busca registrar os momentos mais importantes com elegância e simplicidade.</p><ul style='list-style-type: none; padding-left: 0;'><li>📸 <strong>Cobertura:</strong> Casamento Civil e/ou Religioso (até 4 horas)</li><li>✨ <strong>Ensaio:</strong> Pré-Wedding (2 horas, local externo)</li><li>☁️ <strong>Entrega:</strong> 150 Fotos tratadas em alta resolução (Link para Download)</li><li>🖼️ <strong>Extras:</strong> Galeria Online e Edição Fine Art</li></ul>"
+                },
+                "Cinema": {
+                    title: "Pacote Cinema - Detalhes",
+                    description: "<p>Uma experiência completa, trazendo a magia do cinema para o seu casamento. Ideal para quem não quer perder nenhum detalhe.</p><ul style='list-style-type: none; padding-left: 0;'><li>💍 <strong>Cobertura:</strong> Completa do evento (até 8 horas)</li><li>💄 <strong>Making of:</strong> Da Noiva e do Noivo</li><li>🚁 <strong>Drone:</strong> Imagens aéreas 4K</li><li>📖 <strong>Álbum:</strong> Premium 25x25cm (20 páginas)</li><li>🎬 <strong>Vídeo:</strong> Teaser para Instagram + Filme principal (15-20 min)</li><li>💾 <strong>Entrega:</strong> Pen Drive de luxo com todas as fotos</li></ul>"
+                },
+                "Obra Prima": {
+                    title: "Pacote Obra Prima - Detalhes",
+                    description: "<p>A cobertura definitiva para casamentos grandiosos. Sem limites, sem preocupações, apenas a mais pura arte.</p><ul style='list-style-type: none; padding-left: 0;'><li>♾️ <strong>Cobertura:</strong> Ilimitada de horas</li><li>🎥 <strong>Equipe:</strong> 2 Fotógrafos + 2 Cinegrafistas</li><li>👰 <strong>Ensaios:</strong> Pré-Wedding e Pós-Wedding</li><li>💎 <strong>Álbum:</strong> Luxo em Couro 30x30cm (40 páginas) + 2 Mini-álbuns</li><li>🎞️ <strong>Vídeo:</strong> Longa-metragem documental (40min+)</li><li>🚀 <strong>Entrega:</strong> Prioritária com Same Day Edit (fotos no telão)</li></ul>"
+                }
+            };
+
+            $('.btn-details').click(function() {
+                var pkgName = $(this).data('package');
+                if(packages[pkgName]) {
+                    $('#packageModalLabel').text(packages[pkgName].title);
+                    $('#packageModalBody').html(packages[pkgName].description);
+                    $('#packageModal').modal('show');
                 }
             });
         });

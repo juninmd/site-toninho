@@ -7,8 +7,8 @@
 
 :root {
     --primary-color: #d4af37; /* Gold */
-    --bg-dark: #0a0a0a;
-    --bg-darker: #050505;
+    --bg-dark: #222222;
+    --bg-darker: #1a1a1a;
     --text-light: #f0f0f0;
     --text-muted: #999;
     --overlay-color: rgba(0,0,0,0.7);
@@ -107,7 +107,7 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .navbar-custom {
-    background: rgba(10, 10, 10, 0.9);
+    background: rgba(30, 30, 30, 0.95);
     backdrop-filter: blur(10px);
     border: none;
     padding: 15px 0;
@@ -441,7 +441,7 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .pricing-card {
-    background: rgba(15, 15, 15, 0.6);
+    background: rgba(60, 60, 60, 0.6);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 0;
@@ -536,9 +536,15 @@ a:hover, a:focus {
 /* ----------------------------------------------------------------------------------- */
 
 .contact-section {
-    background: #050505;
+    background: var(--bg-darker);
     position: relative;
     border-top: 1px solid #111;
+}
+
+.footer-custom {
+    background: var(--bg-darker);
+    padding: 40px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .contact-overlay {
@@ -816,5 +822,50 @@ a:hover, a:focus {
     font-style: italic;
     color: #fff;
     line-height: 1.4;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* MODAL & DETAILS BUTTONS
+/* ----------------------------------------------------------------------------------- */
+
+.btn-details {
+    color: #ccc;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.btn-details:hover, .btn-details:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.pricing-card.featured .btn-details {
+    color: #fff;
+}
+
+.pricing-card.featured .btn-details:hover {
+    color: var(--primary-color);
+}
+
+.modal-content-custom {
+    background: var(--bg-dark);
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.modal-header-custom {
+    border-bottom: 1px solid #444;
+}
+
+.modal-footer-custom {
+    border-top: 1px solid #444;
+}
+
+.modal-title-custom {
+    color: var(--primary-color);
     font-family: 'Playfair Display', serif;
 }
