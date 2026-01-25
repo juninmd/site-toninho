@@ -574,6 +574,12 @@ a:hover, a:focus {
     background: #000;
 }
 
+.highlight-budget {
+    border-color: var(--primary-color);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
 .trust-badges {
     display: flex;
     justify-content: space-between;
