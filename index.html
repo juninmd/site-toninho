@@ -74,7 +74,7 @@
     <!-- Top Notification Bar -->
     <div class="top-notification-bar">
         <div class="container text-center">
-            <p><i class="fa fa-calendar-check-o"></i> Agenda 2025/2026 Aberta: Poucas datas disponíveis para o 2º Semestre.</p>
+            <p><i class="fa fa-calendar-check-o"></i> Agenda 2026 Aberta: Reserve sua data exclusiva com antecedência.</p>
         </div>
     </div>
 
@@ -320,6 +320,7 @@
                     <div class="portfolio-filters">
                         <a href="#" data-filter="*" class="active">Todos</a>
                         <a href="#" data-filter=".wedding">Casamentos</a>
+                        <a href="#" data-filter=".prewedding">Pré-Wedding</a>
                         <a href="#" data-filter=".debutante">15 Anos</a>
                         <a href="#" data-filter=".corporate">Corporativo</a>
                     </div>
@@ -336,6 +337,28 @@
                             <i class="fa fa-search-plus" style="font-size: 2rem; color: #d4af37; margin-bottom: 15px;"></i>
                             <h4>Amor Eterno</h4>
                             <p>Capturando a Alma</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Pre-Wedding Item 1 -->
+                <div class="col-md-3 col-sm-6 isotope-item prewedding">
+                    <a href="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="fancybox portfolio-thumb" rel="gallery1">
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Ensaio Pré Wedding" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <i class="fa fa-search-plus" style="font-size: 2rem; color: #d4af37; margin-bottom: 15px;"></i>
+                            <h4>Sintonia</h4>
+                            <p>Ensaio Pré-Wedding</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- Pre-Wedding Item 2 -->
+                <div class="col-md-3 col-sm-6 isotope-item prewedding">
+                    <a href="https://images.unsplash.com/photo-1623190367243-7f2838323630?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="fancybox portfolio-thumb" rel="gallery1">
+                        <img src="https://images.unsplash.com/photo-1623190367243-7f2838323630?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Casal na Natureza" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <i class="fa fa-search-plus" style="font-size: 2rem; color: #d4af37; margin-bottom: 15px;"></i>
+                            <h4>Conexão Natural</h4>
+                            <p>O Amor ao Ar Livre</p>
                         </div>
                     </a>
                 </div>
@@ -587,13 +610,23 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <select name="budget" class="form-control form-control-custom form-select-custom highlight-budget">
                                         <option value="" disabled selected>Investimento Previsto</option>
                                         <option value="Até 2k">Até R$ 2.000</option>
                                         <option value="2k-4k">R$ 2.000 - R$ 4.000</option>
                                         <option value="4k-6k">R$ 4.000 - R$ 6.000</option>
                                         <option value="6k+">Acima de R$ 6.000</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="referral" class="form-control form-control-custom form-select-custom">
+                                        <option value="" disabled selected>Como nos conheceu?</option>
+                                        <option value="Google">Google</option>
+                                        <option value="Instagram">Instagram</option>
+                                        <option value="Facebook">Facebook</option>
+                                        <option value="Indicação">Indicação</option>
+                                        <option value="Outro">Outro</option>
                                     </select>
                                 </div>
                             </div>
@@ -693,6 +726,7 @@
             var packageVal = form.package.value;
             var eventType = form.event_type.value;
             var budget = form.budget.value;
+            var referral = form.referral.value;
             var message = form.message.value;
 
             var text = "*Solicitação de Orçamento - Toninho Fotos*\n\n" +
@@ -702,7 +736,8 @@
                        "📅 *Data:* " + date + "\n" +
                        "📦 *Pacote:* " + packageVal + "\n" +
                        "🎉 *Evento:* " + eventType + "\n" +
-                       "💰 *Orçamento:* " + budget + "\n\n" +
+                       "💰 *Orçamento:* " + budget + "\n" +
+                       "🔍 *Origem:* " + referral + "\n\n" +
                        "📝 *Mensagem:* " + message;
 
             var encodedText = encodeURIComponent(text);
