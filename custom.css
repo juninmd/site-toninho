@@ -23,12 +23,12 @@ body {
     font-family: 'Lato', sans-serif;
     overflow-x: hidden;
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    font-weight: 400;
+    font-weight: 700;
     color: #111;
     letter-spacing: 0.03em;
 }
@@ -764,7 +764,7 @@ a:hover, a:focus {
 
 .card-flip-container {
     perspective: 1000px;
-    height: 400px; /* Adjust based on content */
+    height: 550px; /* Increased height to prevent cutoff */
     margin-bottom: 30px;
 }
 
@@ -786,6 +786,8 @@ a:hover, a:focus {
     height: 100%;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden; /* Safari */
+    background-color: #fff; /* Ensure visibility */
+    border-radius: 4px; /* Match pricing-card radius */
 }
 
 .card-back {
