@@ -7,7 +7,8 @@
 
     <!-- SEO & Meta Tags -->
     <title>Toninho Fotos e Filmagens | Fotografia Emocional de Casamentos em Franca - SP</title>
-    <meta name="description" content="Mais que fotos, memórias vivas. Toninho captura a emoção e a alma do seu casamento, 15 anos ou evento em Franca-SP. Solicite um orçamento e eternize sua história.">
+    <link rel="shortcut icon" href="logo.jpg" type="image/jpg">
+    <meta name="description" content="Toninho Fotos e Filmagens: Fotógrafo de Casamento em Franca-SP com 28 anos de experiência. Fotos, Filmagem 4K e Drone. Solicite seu Orçamento VIP e garanta sua data!">
     <meta name="keywords" content="fotógrafo de casamento, ensaio fotográfico, orçamento fotógrafo, pré wedding, destination wedding, fotografo franca sp, filmagem casamento franca, drone franca, 15 anos fotos, toninho fotos">
     <meta name="author" content="Toninho Fotos e Filmagens">
 
@@ -103,7 +104,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-fullscreen">
-        <video autoplay muted loop poster="fotoAntonio.jpg" class="hero-video-bg">
+        <video autoplay muted loop playsinline poster="fotoAntonio.jpg" class="hero-video-bg">
             <source src="video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -630,7 +631,7 @@
 
     <!-- Mobile Sticky Bar -->
     <div class="mobile-action-bar">
-        <a href="https://wa.me/5516999999999" class="action-btn btn-whatsapp-mobile"><i class="fa fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="action-btn btn-whatsapp-mobile"><i class="fa fa-whatsapp"></i> WhatsApp</a>
         <a href="#contact" class="action-btn btn-quote-mobile"><i class="fa fa-envelope-o"></i> Orçamento</a>
     </div>
 
@@ -686,13 +687,13 @@
             })
             .then(() => {
                 // Success: Lead captured
-                window.open(whatsappUrl, '_blank');
+                window.location.href = whatsappUrl;
                 form.reset();
             })
             .catch((error) => {
                 // Fallback: Just open WhatsApp if backend fails
                 console.error("Form submission error:", error);
-                window.open(whatsappUrl, '_blank');
+                window.location.href = whatsappUrl;
             });
         }
 
