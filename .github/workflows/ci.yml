@@ -18,9 +18,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: List files
-        run: ls -R
-
       - name: Verify index.html exists
         run: |
           if [ -f index.html ]; then
