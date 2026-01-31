@@ -833,3 +833,202 @@ a:hover, a:focus {
 .portfolio-thumb:hover .portfolio-overlay i {
     transform: translateY(0);
 }
+
+/* ----------------------------------------------------------------------------------- */
+/* REFACTORED UTILITY CLASSES
+/* ----------------------------------------------------------------------------------- */
+
+.section-white {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.text-uppercase-spaced {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.text-muted-light {
+    color: #999;
+}
+
+/* FAQ / Accordion */
+.panel-faq {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.panel-faq-heading {
+    background: transparent;
+}
+
+.panel-faq-link {
+    color: #333;
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.panel-faq-icon {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.panel-faq-body {
+    color: #666;
+    border-top: none;
+}
+
+/* Process Section */
+.process-number {
+    display: block;
+    font-size: 3rem;
+    color: #f0f0f0;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.process-title-text {
+    color: #333;
+}
+
+.process-desc-text {
+    color: #666;
+}
+
+/* Stats Section */
+.stat-number {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.stat-label {
+    color: #ccc;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+/* Testimonials */
+.testimonial-stars {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.testimonial-quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #666;
+}
+
+.testimonial-author {
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
+.testimonial-role {
+    display: block;
+    color: #999;
+}
+
+/* Footer */
+.footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.footer-sub {
+    color: #666;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.footer-phone-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-copyright {
+    color: #444;
+    font-size: 0.7rem;
+    margin-top: 30px;
+}
+
+/* Margins */
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+/* Pricing Note */
+.pricing-note {
+    color: #666;
+    font-style: italic;
+}
+
+.pricing-note-link {
+    color: var(--primary-color);
+}
+
+/* Contact Info */
+.contact-intro-text {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.contact-alert {
+    color: #d9534f;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contact-security {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #777;
+}
+
+.btn-cta-submit {
+    background: var(--primary-color);
+    color: #000;
+    border: none;
+    width: 100%;
+}
+
+.text-black {
+    color: #000;
+}
+
+.testimonial-quote-icon {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.footer-contact-p {
+    font-size: 1rem;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
