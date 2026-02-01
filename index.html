@@ -163,8 +163,9 @@
         <div class="hero-content text-center">
             <span class="hero-brand wow fadeInDown">Toninho Fotos e Filmagens</span>
             <h1 class="hero-headline wow zoomIn">Sua História,<br>Uma Obra de Arte</h1>
-            <p class="hero-sub wow fadeInUp" data-wow-delay="0.3s">Fotógrafo de Casamento e 15 Anos em Franca-SP • Eternizando Momentos</p>
+            <p class="hero-sub wow fadeInUp" data-wow-delay="0.3s">Fotografia e Cinema 4K em Franca-SP. Sua história contada com emoção, arte e entrega garantida.</p>
             <a href="#contact" class="btn btn-cta page-scroll wow fadeInUp" data-wow-delay="0.5s">Solicitar Orçamento Exclusivo</a>
+            <p class="wow fadeInUp" data-wow-delay="0.7s" style="margin-top: 15px; color: rgba(255,255,255,0.7); font-size: 0.85rem;"><i class="fa fa-clock-o"></i> Resposta rápida em até 24h</p>
         </div>
     </section>
 
@@ -452,14 +453,14 @@
                             <div class="testimonial-stars">
                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                             </div>
-                            <p class="testimonial-quote">"Simplesmente incrível! O Toninho conseguiu captar a essência do nosso casamento. As fotos de drone ficaram espetaculares!"</p>
+                            <p class="testimonial-quote">"O Toninho não apenas tirou fotos, ele capturou a nossa alma. As imagens aéreas do drone no pôr do sol ficaram dignas de cinema! Recomendo de olhos fechados."</p>
                             <h5 class="testimonial-author">Mariana & Pedro <small class="testimonial-role">Casamento em Franca</small></h5>
                         </div>
                         <div class="item">
                             <div class="testimonial-stars">
                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                             </div>
-                            <p class="testimonial-quote">"Profissionalismo nota 1000. Cumpriu todos os prazos e o álbum ficou maravilhoso."</p>
+                            <p class="testimonial-quote">"Eu estava nervosa com as fotos, mas a equipe me deixou super à vontade. Recebi o álbum antes do prazo e a qualidade do material é surreal. Valeu cada centavo!"</p>
                             <h5 class="testimonial-author">Carla Souza <small class="testimonial-role">15 Anos</small></h5>
                         </div>
                     </div>
@@ -485,6 +486,7 @@
                         <div class="pricing-header text-center">
                             <span class="package-name">Essencial</span>
                             <h3 class="package-price">R$ 1.890<span>,00</span></h3>
+                            <div class="text-muted small" style="font-size: 0.8rem; margin-top: -5px;">em até 12x no cartão</div>
                         </div>
                         <ul class="pricing-features text-center">
                             <li>📸 Cobertura Civil + Ensaio</li>
@@ -504,6 +506,7 @@
                         <div class="pricing-header text-center">
                             <span class="package-name">Cinema</span>
                             <h3 class="package-price">R$ 3.590<span>,00</span></h3>
+                            <div class="text-muted small" style="font-size: 0.8rem; margin-top: -5px;">em até 12x no cartão</div>
                         </div>
                         <ul class="pricing-features text-center">
                             <li>🚁 Drone 4K + Making Of</li>
@@ -522,6 +525,7 @@
                         <div class="pricing-header text-center">
                             <span class="package-name">Obra Prima</span>
                             <h3 class="package-price">R$ 5.900<span>,00</span></h3>
+                            <div class="text-muted small" style="font-size: 0.8rem; margin-top: -5px;">em até 12x no cartão</div>
                         </div>
                         <ul class="pricing-features text-center">
                             <li>♾️ Cobertura Ilimitada</li>
@@ -618,7 +622,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <textarea name="message" class="form-control form-control-custom" rows="4" placeholder="Detalhes adicionais (local, horário, dúvidas...)" aria-label="Detalhes adicionais"></textarea>
+                                    <input type="text" name="location" class="form-control form-control-custom" placeholder="Local do Evento (Cidade/Salão)" required aria-label="Local do Evento">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <textarea name="message" class="form-control form-control-custom" rows="4" placeholder="Detalhes adicionais (horário, dúvidas...)" aria-label="Detalhes adicionais"></textarea>
                                 </div>
                             </div>
 
@@ -716,6 +725,7 @@
             var eventType = form.event_type.value;
             var budget = form.budget.value;
             var referral = form.referral.value;
+            var location = form.location.value;
             var message = form.message.value;
 
             var text = "*Solicitação de Orçamento - Toninho Fotos*\n\n" +
@@ -723,6 +733,7 @@
                        "📧 *Email:* " + email + "\n" +
                        "📱 *WhatsApp:* " + phone + "\n" +
                        "📅 *Data:* " + date + "\n" +
+                       "📍 *Local:* " + location + "\n" +
                        "📦 *Pacote:* " + packageVal + "\n" +
                        "🎉 *Evento:* " + eventType + "\n" +
                        "💰 *Orçamento:* " + budget + "\n" +
