@@ -1032,3 +1032,49 @@ a:hover, a:focus {
 .mt-20 {
     margin-top: 20px;
 }
+
+/* ----------------------------------------------------------------------------------- */
+/* OPTIMIZATION ELEMENTS
+/* ----------------------------------------------------------------------------------- */
+
+.scroll-down-btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.6);
+    font-size: 2.5rem;
+    z-index: 10;
+    transition: all 0.3s;
+    animation: scroll-bounce 2s infinite;
+}
+
+.scroll-down-btn:hover {
+    color: var(--primary-color);
+}
+
+@keyframes scroll-bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+    40% {transform: translateX(-50%) translateY(-10px);}
+    60% {transform: translateX(-50%) translateY(-5px);}
+}
+
+.section-cta-interim {
+    padding: 80px 0;
+    background: #1a1a1a;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.cta-interim-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cta-interim-text {
+    color: #999;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
