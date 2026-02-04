@@ -790,6 +790,23 @@
         <a href="#contact" class="action-btn btn-quote-mobile"><i class="fa fa-envelope-o"></i> Orçamento</a>
     </div>
 
+    <!-- Exit Intent Modal -->
+    <div id="exitModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="font-family: 'Playfair Display', serif; color: #d4af37;">Espere! Uma Oportunidade Única</h4>
+          </div>
+          <div class="modal-body">
+            <p style="font-size: 1.1rem; color: #555;">Ainda não garantiu sua data? Nossa agenda de 2025 está fechando rápido.</p>
+            <p style="font-size: 1rem; color: #777;">Fale diretamente comigo agora e receba uma condição especial.</p>
+            <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vi%20o%20popup%20e%20quero%20saber%20da%20condi%C3%A7%C3%A3o%20especial." class="btn btn-cta" target="_blank" style="margin-top: 15px; width: 100%;">Quero Condição Especial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -1014,6 +1031,18 @@
                             'background' : 'rgba(0,0,0,0.9)'
                         }
                     }
+                }
+            });
+
+            // Exit Intent Logic
+            var exitIntentShown = false;
+            $(document).on('mouseleave', function(e) {
+                if (e.clientY < 0 && !exitIntentShown) {
+                     if (!sessionStorage.getItem('exitIntentShown')) {
+                         $('#exitModal').modal('show');
+                         exitIntentShown = true;
+                         sessionStorage.setItem('exitIntentShown', 'true');
+                     }
                 }
             });
         });
