@@ -133,12 +133,33 @@ a:hover, a:focus {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 700;
+    position: relative; /* For underline effect */
+}
+
+/* Underline Animation */
+.navbar-custom .nav > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 10px;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    opacity: 0;
 }
 
 .navbar-custom .nav > li.active > a,
 .navbar-custom .nav > li > a:hover {
     color: var(--primary-color);
     background: transparent;
+}
+
+.navbar-custom .nav > li.active > a::after,
+.navbar-custom .nav > li > a:hover::after {
+    width: 30px;
+    opacity: 1;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -362,18 +383,20 @@ a:hover, a:focus {
     position: relative;
     overflow: hidden;
     display: block;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 8px; /* Increased rounding */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Improved shadow */
+    cursor: pointer;
 }
 
 .portfolio-thumb img {
     width: 100%;
     transition: transform 0.6s ease;
     filter: none;
+    backface-visibility: hidden;
 }
 
 .portfolio-thumb:hover img {
-    transform: scale(1.05);
+    transform: scale(1.1); /* More pronounced zoom */
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -775,33 +798,39 @@ a:hover, a:focus {
 .portfolio-filter {
     list-style: none;
     padding: 0;
-    margin: 0 0 30px;
+    margin: 0 0 40px;
     display: inline-block;
 }
 
 .portfolio-filter li {
     cursor: pointer;
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 0.8rem;
+    padding: 10px 25px;
+    margin: 0 5px;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #666;
+    color: #555;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
-    border-radius: 30px;
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .portfolio-filter li:hover,
 .portfolio-filter li.active {
-    color: var(--primary-color);
+    color: #fff;
+    background: var(--primary-color);
     border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
 }
 
 .portfolio-item {
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px; /* Increased bottom margin */
 }
 
 .portfolio-overlay {
@@ -810,28 +839,67 @@ a:hover, a:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(212, 175, 55, 0.8);
+    /* Gradient Overlay */
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(212, 175, 55, 0.7));
     opacity: 0;
     transition: all 0.4s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    text-align: center;
+    border-radius: 8px; /* Match thumb */
 }
 
 .portfolio-thumb:hover .portfolio-overlay {
     opacity: 1;
 }
 
-.portfolio-overlay i {
-    color: #fff;
-    font-size: 2rem;
+.portfolio-content {
     transform: translateY(20px);
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease;
+    color: #fff;
 }
 
-.portfolio-thumb:hover .portfolio-overlay i {
+.portfolio-thumb:hover .portfolio-content {
     transform: translateY(0);
+}
+
+.portfolio-overlay i {
+    font-size: 1.5rem;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.portfolio-overlay h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin: 0 0 5px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.portfolio-overlay span {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #f0f0f0;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.portfolio-overlay span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 1px;
+    background: #fff;
 }
 
 /* ----------------------------------------------------------------------------------- */
