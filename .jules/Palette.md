@@ -1,0 +1,2 @@
+## 2024-05-22 - Accessibility Audit | **Learning:** HTML validators are strict about Unsplash URL encodings and semantic buttons. | **Action:** Always encode `&` in URLs and use `<button>` for actions.
+## 2024-05-22 - Testing | **Learning:** `wow.js` hides elements initially, causing Playwright visibility assertions to fail if not scrolled. | **Action:** Use `scroll_into_view_if_needed` or assert on non-animated elements.
