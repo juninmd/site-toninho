@@ -30,7 +30,7 @@
     -->
 
     <!-- SEO & Meta Tags -->
-    <title>Toninho Fotos e Filmagens | Fotografia Emocional de Casamentos em Franca - SP</title>
+    <title>Toninho Fotos e Filmagens | Casamentos em Franca - SP</title>
     <link rel="shortcut icon" href="logo.jpg" type="image/jpg">
     <meta name="description" content="Toninho Fotos e Filmagens: Fotógrafo de Casamento em Franca-SP com 28 anos de experiência. Fotos, Filmagem 4K e Drone. Solicite seu Orçamento VIP e garanta sua data!">
     <meta name="keywords" content="fotógrafo de casamento, ensaio fotográfico, orçamento fotógrafo, pré wedding, destination wedding, fotografo franca sp, filmagem casamento franca, drone franca, 15 anos fotos, toninho fotos">
@@ -224,7 +224,7 @@
             <p class="hero-sub wow fadeInUp" data-wow-delay="0.3s">Fotografia e Cinema 4K em Franca-SP. Sua história contada com emoção, arte e entrega garantida.</p>
             <a href="#contact" class="btn btn-cta page-scroll wow fadeInUp" data-wow-delay="0.5s">Verificar Disponibilidade</a>
             <p class="wow fadeInUp" data-wow-delay="0.7s" style="margin-top: 15px; color: rgba(255,255,255,0.7); font-size: 0.85rem;"><i class="fa fa-clock-o"></i> Resposta rápida em até 24h</p>
-            <a href="#about" class="scroll-down-btn page-scroll wow fadeInUp" data-wow-delay="1.0s"><i class="fa fa-angle-down"></i></a>
+            <a href="#about" class="scroll-down-btn page-scroll wow fadeInUp" data-wow-delay="1.0s" aria-label="Rolar para baixo"><i class="fa fa-angle-down"></i></a>
         </div>
     </section>
 
@@ -654,6 +654,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
+                        <div id="form-feedback" style="margin-bottom: 20px;"></div>
                         <form id="form-contact" name="contact" method="POST" data-netlify="true" onsubmit="handleContactSubmit(event)">
                             <div class="row">
                                 <div class="col-md-6">
@@ -869,6 +870,13 @@
                 // Success: Lead captured
                 var newWindow = window.open(whatsappUrl, '_blank');
 
+                // Tracking Events (Placeholders)
+                // gtag('event', 'generate_lead', {'currency': 'BRL', 'value': 0});
+                // fbq('track', 'Lead');
+
+                // Visual Feedback via Alert
+                document.getElementById('form-feedback').innerHTML = '<div class="alert alert-success" role="alert"><i class="fa fa-check-circle"></i> Obrigado! Seu orçamento foi solicitado. Verifique o WhatsApp na nova aba para continuar.</div>';
+
                 // UI Feedback & Fallback for Popup Blockers
                 if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
                     // Popup blocked
@@ -880,11 +888,12 @@
                 submitBtn.classList.add('btn-success');
                 form.reset();
 
-                // Reset button after 10 seconds (give time to click fallback)
+                // Reset button and feedback after 10 seconds (give time to click fallback)
                 setTimeout(function() {
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('btn-success');
+                    document.getElementById('form-feedback').innerHTML = '';
                 }, 10000);
             })
             .catch((error) => {
