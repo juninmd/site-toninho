@@ -4,7 +4,7 @@
     "no-trailing-whitespace": "off",
     "void-style": "off",
     "no-inline-style": "off",
-    "require-sri": "off",
+    "require-sri": "error",
     "no-autoplay": "off",
     "tel-non-breaking": "off"
   }
