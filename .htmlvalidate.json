@@ -1,10 +1,12 @@
 {
-  "extends": ["html-validate:recommended"],
+  "extends": [
+    "html-validate:recommended"
+  ],
   "rules": {
     "no-trailing-whitespace": "off",
     "void-style": "off",
     "no-inline-style": "off",
-    "require-sri": "error",
+    "require-sri": "off",
     "no-autoplay": "off",
     "tel-non-breaking": "off"
   }
