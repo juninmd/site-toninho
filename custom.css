@@ -484,6 +484,11 @@ a:hover, a:focus {
     border-bottom: none;
 }
 
+.pricing-check {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
 .pricing-footer {
     padding: 0 20px 40px;
 }
@@ -689,6 +694,10 @@ a:hover, a:focus {
     .navbar-custom {
         padding: 10px 0;
         background: #fff;
+    }
+
+    .footer-custom {
+        padding-bottom: 80px !important;
     }
 }
 
