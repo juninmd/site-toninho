@@ -1,0 +1,9 @@
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /bootstrap.min.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /owl.carousel.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /animate.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /jquery.fancybox.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /custom.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /owl.theme.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /fotoAntonio.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [10/Feb/2026 15:33:04] "GET /video.mp4 HTTP/1.1" 200 -
