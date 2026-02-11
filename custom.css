@@ -689,6 +689,8 @@ a:hover, a:focus {
 
     .pricing-card.featured {
         transform: scale(1);
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
     }
 
     .navbar-custom {
