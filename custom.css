@@ -1410,3 +1410,21 @@ a:hover, a:focus {
 .mt-20 {
     margin-top: 20px;
 }
+
+/* ----------------------------------------------------------------------------------- */
+/* SALES OPTIMIZATION STYLES (NEW)
+/* ----------------------------------------------------------------------------------- */
+
+.pricing-installment-highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.hero-trust-badge {
+    margin-top: 15px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
