@@ -637,6 +637,7 @@ a:hover, a:focus {
 
 .btn-whatsapp-mobile {
     background-color: #25D366;
+    animation: btn-pulse 2s infinite;
 }
 
 .btn-quote-mobile {
@@ -742,6 +743,23 @@ a:hover, a:focus {
 .desktop-whatsapp:hover {
     transform: scale(1.1);
     color: #fff;
+}
+
+.desktop-whatsapp::after {
+    content: '1';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 @media (max-width: 768px) {
