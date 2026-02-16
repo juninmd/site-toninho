@@ -1,7 +1,25 @@
+window.selectPackage = function(pacoteName) {
+  const select = document.getElementById('pacote-select');
+  if (select) {
+    select.value = pacoteName;
+    const contactSection = document.getElementById('contato');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   // Lightbox Implementation
   const lightbox = document.createElement('div');
   lightbox.id = 'lightbox';
+
+  const closeBtn = document.createElement('button');
+  closeBtn.classList.add('close-lightbox');
+  closeBtn.innerHTML = '&times;';
+  closeBtn.ariaLabel = 'Fechar Galeria';
+  lightbox.appendChild(closeBtn);
+
   document.body.appendChild(lightbox);
 
   const images = document.querySelectorAll('.portfolio-card img');
@@ -12,18 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const newImg = document.createElement('img');
       newImg.src = img.src;
 
-      // Clear previous content
-      while (lightbox.firstChild) {
-        lightbox.removeChild(lightbox.firstChild);
+      // Clear previous image
+      const oldImg = lightbox.querySelector('img');
+      if (oldImg) {
+        lightbox.removeChild(oldImg);
       }
 
       lightbox.appendChild(newImg);
     });
   });
 
-  // Close lightbox on click outside image
+  // Close lightbox on click outside image or close button
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
+    if (e.target === lightbox || e.target === closeBtn) {
       lightbox.classList.remove('active');
     }
   });
@@ -53,8 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = formData.get('data') || 'Data a definir';
         const local = formData.get('local') || 'Local a definir';
         const tipo = formData.get('evento');
+        const pacote = formData.get('pacote');
 
-        const message = `Olá, sou ${nome}. Gostaria de um orçamento para *${tipo}* no dia *${data}* em *${local}*.`;
+        let message = `Olá, sou ${nome}. Gostaria de um orçamento para *${tipo}* no dia *${data}* em *${local}*.`;
+        if (pacote) {
+          message += ` Tenho interesse no pacote *${pacote}*.`;
+        }
+
         const whatsappUrl = `https://wa.me/5516999999999?text=${encodeURIComponent(message)}`;
 
         // Open WhatsApp

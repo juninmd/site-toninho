@@ -71,24 +71,45 @@
         <h2>Histórias Reais, Emoções Reais</h2>
         <div class="grid portfolio-grid">
           <article class="card portfolio-card">
-            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=900&q=80" alt="Casamento Ana & João | Villa Ventura">
+            <img src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?auto=format&fit=crop&w=900&q=80" alt="Casamento Ana & João | Villa Ventura" loading="lazy">
             <div>
               <h3>Ana &amp; João | Villa Ventura</h3>
               <p>Um pôr do sol inesquecível com cerimônia ao ar livre.</p>
             </div>
           </article>
           <article class="card portfolio-card">
-            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80" alt="Ensaio Pré-Wedding na Serra da Canastra">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80" alt="Ensaio Pré-Wedding na Serra da Canastra" loading="lazy">
             <div>
               <h3>Ensaio Pré-Wedding</h3>
               <p>Conexão e natureza: o amor capturado em sua essência.</p>
             </div>
           </article>
           <article class="card portfolio-card">
-            <img src="https://images.unsplash.com/photo-1520854221256-17451cc330e7?auto=format&fit=crop&w=900&q=80" alt="15 Anos da Sofia | Espaço Cedro">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc330e7?auto=format&fit=crop&w=900&q=80" alt="15 Anos da Sofia | Espaço Cedro" loading="lazy">
             <div>
               <h3>15 Anos | Espaço Cedro</h3>
               <p>Uma noite mágica com muita luz, festa e alegria.</p>
+            </div>
+          </article>
+          <article class="card portfolio-card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Detalhes do Grande Dia | Buffet Spazio" loading="lazy">
+            <div>
+              <h3>Detalhes | Buffet Spazio</h3>
+              <p>A elegância está nos pequenos detalhes que compõem o sonho.</p>
+            </div>
+          </article>
+          <article class="card portfolio-card">
+            <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=80" alt="Elopement Wedding | Serra da Canastra" loading="lazy">
+            <div>
+              <h3>Elopement | Serra da Canastra</h3>
+              <p>Intimidade e aventura em um cenário de tirar o fôlego.</p>
+            </div>
+          </article>
+          <article class="card portfolio-card">
+            <img src="https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=900&q=80" alt="Festa de Formatura | Salão Nobre" loading="lazy">
+            <div>
+              <h3>Formatura | Salão Nobre</h3>
+              <p>A celebração de uma conquista com muita energia e emoção.</p>
             </div>
           </article>
         </div>
@@ -109,6 +130,7 @@
               <li><i class="fas fa-check"></i> Galeria Online (3 meses)</li>
               <li><i class="fas fa-check"></i> Entrega em 15 dias</li>
             </ul>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Tenho Interesse</a>
           </article>
           <article class="card service-card featured">
             <span class="tag">Mais Escolhido pelas Noivas</span>
@@ -121,6 +143,7 @@
               <li><i class="fas fa-check"></i> Álbum Premium 25x25</li>
               <li><i class="fas fa-check"></i> Pen Drive Personalizado</li>
             </ul>
+            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Tenho Interesse</a>
           </article>
           <article class="card service-card">
             <h3>Obra-Prima</h3>
@@ -132,6 +155,7 @@
               <li><i class="fas fa-check"></i> Álbum Luxo 30x30 + Maleta</li>
               <li><i class="fas fa-check"></i> Same Day Edit (Trailer na festa)</li>
             </ul>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Tenho Interesse</a>
           </article>
         </div>
       </div>
@@ -190,6 +214,14 @@
           </div>
           <label>Local do Evento
              <input type="text" name="local" placeholder="Ex: Salão de Festas X" required>
+          </label>
+          <label>Pacote de Interesse (Opcional)
+            <select name="pacote" id="pacote-select">
+              <option value="">Ainda não decidi</option>
+              <option value="Essencial">Essencial</option>
+              <option value="Cinema">Cinema (Mais Escolhido)</option>
+              <option value="Obra-Prima">Obra-Prima</option>
+            </select>
           </label>
           <label>Mensagem ou Dúvida
             <textarea name="mensagem" rows="3" placeholder="Conte um pouco sobre o que você sonha para esse dia..."></textarea>
