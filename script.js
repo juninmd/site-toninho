@@ -10,7 +10,30 @@ window.selectPackage = function(pacoteName) {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Lightbox Implementation
+  // --- Portfolio Filtering ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active from all
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      portfolioItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // --- Lightbox Implementation ---
   const lightbox = document.createElement('div');
   lightbox.id = 'lightbox';
 
@@ -22,21 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.body.appendChild(lightbox);
 
-  const images = document.querySelectorAll('.portfolio-card img');
-  images.forEach(img => {
-    img.style.cursor = 'pointer'; // Indicate clickable
-    img.addEventListener('click', () => {
-      lightbox.classList.add('active');
-      const newImg = document.createElement('img');
-      newImg.src = img.src;
+  // Use .portfolio-card click to handle overlay issues
+  const cards = document.querySelectorAll('.portfolio-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.querySelector('img');
+      if (img) {
+        lightbox.classList.add('active');
+        const newImg = document.createElement('img');
+        newImg.src = img.src;
 
-      // Clear previous image
-      const oldImg = lightbox.querySelector('img');
-      if (oldImg) {
-        lightbox.removeChild(oldImg);
+        // Clear previous image
+        const oldImg = lightbox.querySelector('img');
+        if (oldImg) {
+          lightbox.removeChild(oldImg);
+        }
+
+        lightbox.appendChild(newImg);
       }
-
-      lightbox.appendChild(newImg);
     });
   });
 
