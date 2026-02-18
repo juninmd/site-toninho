@@ -1,6 +1,5 @@
 [build]
   publish = "."
-  command = "# no build command needed for static site"
 
 [[headers]]
   for = "/*"
