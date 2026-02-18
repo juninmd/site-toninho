@@ -13,7 +13,7 @@
 </head>
 <body>
   <header class="topbar">
-    <p>Agenda 2025: Últimas datas para o 2º Semestre! Garanta a sua.</p>
+    <p>Agenda 2025: Últimas 3 datas para o 2º Semestre! Garanta a sua.</p>
   </header>
 
   <nav class="navbar" aria-label="Menu principal">
@@ -37,7 +37,7 @@
         <h1>Sua História, Uma Obra de Arte.</h1>
         <p>Mais do que fotos, entregamos herança visual. Sua história contada com emoção, arte e a segurança de 28 anos de experiência.</p>
         <div class="hero-actions">
-          <a href="#contato" class="btn btn-primary">Verificar Disponibilidade</a>
+          <a href="#contato" class="btn btn-primary">Verificar Disponibilidade &amp; Orçamento</a>
           <a href="#portfolio" class="btn btn-ghost">Ver Portfólio</a>
         </div>
         <ul class="hero-badges">
@@ -71,11 +71,11 @@
         <h2>Histórias Reais: Fotografia de Casamento e Eventos</h2>
 
         <div class="portfolio-filters">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="casamento">Casamentos</button>
-          <button class="filter-btn" data-filter="pre-wedding">Pré-Wedding</button>
-          <button class="filter-btn" data-filter="15-anos">15 Anos</button>
-          <button class="filter-btn" data-filter="eventos">Eventos</button>
+          <button type="button" class="filter-btn active" data-filter="all">Todos</button>
+          <button type="button" class="filter-btn" data-filter="casamento">Casamentos</button>
+          <button type="button" class="filter-btn" data-filter="pre-wedding">Pré-Wedding</button>
+          <button type="button" class="filter-btn" data-filter="15-anos">15 Anos</button>
+          <button type="button" class="filter-btn" data-filter="eventos">Eventos</button>
         </div>
 
         <div class="grid portfolio-grid">
@@ -128,7 +128,7 @@
     <section id="servicos" class="section section-light">
       <div class="container">
         <p class="kicker">Investimento</p>
-        <h2>Pacotes de Fotografia e Filmagem: Escolha a experiência ideal</h2>
+        <h2>Coleções Exclusivas: Escolha como contar sua história</h2>
         <div class="grid services-grid">
           <article class="card service-card">
             <h3>Essencial</h3>
@@ -139,7 +139,7 @@
               <li><i class="fas fa-check"></i> Galeria Online (3 meses)</li>
               <li><i class="fas fa-check"></i> Entrega em 15 dias</li>
             </ul>
-            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Tenho Interesse</a>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Tenho interesse neste</a>
           </article>
           <article class="card service-card featured">
             <span class="tag">Mais Escolhido pelas Noivas</span>
@@ -152,7 +152,7 @@
               <li><i class="fas fa-check"></i> Álbum Premium 25x25</li>
               <li><i class="fas fa-check"></i> Pen Drive Personalizado</li>
             </ul>
-            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Tenho Interesse</a>
+            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Tenho interesse neste</a>
           </article>
           <article class="card service-card">
             <h3>Obra-Prima</h3>
@@ -164,7 +164,7 @@
               <li><i class="fas fa-check"></i> Álbum Luxo 30x30 + Maleta</li>
               <li><i class="fas fa-check"></i> Same Day Edit (Trailer na festa)</li>
             </ul>
-            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Tenho Interesse</a>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Tenho interesse neste</a>
           </article>
         </div>
       </div>
@@ -235,14 +235,44 @@
               <option value="Obra-Prima">Obra-Prima</option>
             </select>
           </label>
-          <label>Mensagem ou Dúvida
-            <textarea name="mensagem" rows="3" placeholder="Conte um pouco sobre o que você sonha para esse dia..."></textarea>
+          <label>Qual seu maior sonho para esse dia?
+             <textarea name="sonho" rows="2" placeholder="Ex: Quero fotos espontâneas, muita emoção na cerimônia..."></textarea>
           </label>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Verificar Disponibilidade &amp; Orçamento</button>
+          <label>Mensagem ou Dúvida
+            <textarea name="mensagem" rows="3" placeholder="Mais algum detalhe?"></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Proposta VIP</button>
         </form>
       </div>
     </section>
   </main>
+
+  <section id="faq" class="section section-light faq-section">
+    <div class="container">
+      <p class="kicker">Dúvidas Frequentes</p>
+      <h2>Tudo o que você precisa saber</h2>
+      <div class="faq-grid">
+        <details class="faq-item">
+          <summary class="faq-question">Como funciona a reserva da data?</summary>
+          <div class="faq-answer">
+            <p>A reserva é feita mediante assinatura de contrato e sinal de 30%. O restante pode ser parcelado até 15 dias antes do evento.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Vocês trabalham com contrato?</summary>
+          <div class="faq-answer">
+            <p>Sim! Todos os nossos serviços são respaldados por contrato jurídico para sua total segurança e garantia de entrega.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Qual o prazo de entrega?</summary>
+          <div class="faq-answer">
+            <p>Entregamos as prévias em 48h. As fotos editadas em até 20 dias úteis e o filme completo em até 45 dias úteis.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
 
   <footer class="footer">
     <p><strong>Toninho Fotos e Filmagens</strong></p>
