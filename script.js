@@ -98,11 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = formData.get('data') || 'Data a definir';
         const local = formData.get('local') || 'Local a definir';
         const tipo = formData.get('evento');
+        const orcamento = formData.get('orcamento');
         const pacote = formData.get('pacote');
         const sonho = formData.get('sonho');
         const msgUser = formData.get('mensagem');
 
         let message = `Olá, sou *${nome}*. Gostaria de uma proposta VIP para *${tipo}*.\n\n📅 Data: *${data}*\n📍 Local: *${local}*`;
+
+        if (orcamento) {
+          message += `\n💰 Investimento: *${orcamento}*`;
+        }
 
         if (pacote && pacote !== "Ainda não decidi") {
           message += `\n📦 Coleção de interesse: *${pacote}*`;
@@ -130,10 +135,19 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       })
       .catch((error) => {
-        console.error('Submission error:', error);
-        alert('Houve um erro ao enviar. Por favor, tente novamente ou chame no WhatsApp direto.');
-        submitBtn.innerText = originalText;
-        submitBtn.disabled = false;
+        console.error('Submission error (Netlify):', error);
+        // Fallback: Construct message and open WhatsApp anyway
+        const nome = formData.get('nome');
+        const whatsappUrl = `https://wa.me/5516999999999?text=Ol%C3%A1%2C%20sou%20${encodeURIComponent(nome)}.%20Tive%20um%20problema%20no%20envio%20do%20form%2C%20mas%20gostaria%20de%20um%20or%C3%A7amento.`;
+        window.open(whatsappUrl, '_blank');
+
+        form.innerHTML = `
+          <div class="success-message" style="text-align: center; padding: 20px;">
+            <h3 style="color: var(--gold-strong);">Redirecionando...</h3>
+            <p>Houve um erro no nosso servidor, mas estamos te levando para o WhatsApp!</p>
+            <p><a href="${whatsappUrl}" target="_blank" style="text-decoration: underline;">Clique aqui se não abrir.</a></p>
+          </div>
+        `;
       });
     });
   }

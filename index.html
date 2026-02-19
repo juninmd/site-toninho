@@ -22,7 +22,7 @@
       <li><a href="#portfolio">Portfólio</a></li>
       <li><a href="#servicos">Pacotes</a></li>
       <li><a href="#depoimentos">Depoimentos</a></li>
-      <li><a href="#contato" class="nav-cta">Orçamento VIP</a></li>
+      <li><a href="#contato" class="nav-cta">Verificar Data</a></li>
     </ul>
   </nav>
 
@@ -205,17 +205,17 @@
         <form name="contato" method="POST" data-netlify="true" class="contact-form">
           <input type="hidden" name="form-name" value="contato">
           <label>Seu Nome
-            <input type="text" name="nome" placeholder="Como podemos te chamar?" required>
+            <input type="text" name="nome" placeholder="Como podemos te chamar?" required aria-label="Seu Nome">
           </label>
           <label>Seu WhatsApp
-            <input type="tel" name="whatsapp" placeholder="(16) 99999-9999" required>
+            <input type="tel" name="whatsapp" placeholder="(16) 99999-9999" required aria-label="Seu WhatsApp">
           </label>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
              <label>Data do Evento
-                <input type="date" name="data" required>
+                <input type="date" name="data" required aria-label="Data do Evento">
              </label>
              <label>Tipo de Evento
-                <select name="evento" required>
+                <select name="evento" required aria-label="Tipo de Evento">
                   <option value="">Selecione</option>
                   <option>Casamento</option>
                   <option>Pré-Wedding</option>
@@ -225,10 +225,19 @@
              </label>
           </div>
           <label>Local do Evento
-             <input type="text" name="local" placeholder="Ex: Salão de Festas X" required>
+             <input type="text" name="local" placeholder="Ex: Salão de Festas X" required aria-label="Local do Evento">
+          </label>
+          <label>Investimento Previsto
+             <select name="orcamento" required aria-label="Investimento Previsto">
+                <option value="">Selecione uma faixa</option>
+                <option value="Até R$ 2.000 (Plano Essencial)">Até R$ 2.000 (Plano Essencial)</option>
+                <option value="R$ 3.000 - R$ 5.000 (Plano Cinema)">R$ 3.000 - R$ 5.000 (Plano Cinema)</option>
+                <option value="Acima de R$ 6.000 (Plano Obra-Prima)">Acima de R$ 6.000 (Plano Obra-Prima)</option>
+                <option value="Outro Valor">Outro Valor</option>
+             </select>
           </label>
           <label>Pacote de Interesse (Opcional)
-            <select name="pacote" id="pacote-select">
+            <select name="pacote" id="pacote-select" aria-label="Pacote de Interesse">
               <option value="">Ainda não decidi</option>
               <option value="Essencial">Essencial</option>
               <option value="Cinema">Cinema (Mais Escolhido)</option>
@@ -236,10 +245,10 @@
             </select>
           </label>
           <label>Qual seu maior sonho para esse dia?
-             <textarea name="sonho" rows="2" placeholder="Ex: Quero fotos espontâneas, muita emoção na cerimônia..."></textarea>
+             <textarea name="sonho" rows="2" placeholder="Ex: Quero fotos espontâneas, muita emoção na cerimônia..." aria-label="Qual seu maior sonho para esse dia?"></textarea>
           </label>
           <label>Mensagem ou Dúvida
-            <textarea name="mensagem" rows="3" placeholder="Mais algum detalhe?"></textarea>
+            <textarea name="mensagem" rows="3" placeholder="Mais algum detalhe?" aria-label="Mensagem ou Dúvida"></textarea>
           </label>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Proposta VIP</button>
         </form>
