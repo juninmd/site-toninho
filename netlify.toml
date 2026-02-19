@@ -1,5 +1,5 @@
 [build]
-  command = "true"
+  command = "# no build command"
   publish = "."
 
 [[headers]]
