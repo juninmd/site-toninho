@@ -99,10 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const local = formData.get('local') || 'Local a definir';
         const tipo = formData.get('evento');
         const pacote = formData.get('pacote');
+        const sonho = formData.get('sonho');
+        const msgUser = formData.get('mensagem');
 
-        let message = `Olá, sou ${nome}. Gostaria de um orçamento para *${tipo}* no dia *${data}* em *${local}*.`;
-        if (pacote) {
-          message += ` Tenho interesse no pacote *${pacote}*.`;
+        let message = `Olá, sou *${nome}*. Gostaria de uma proposta VIP para *${tipo}*.\n\n📅 Data: *${data}*\n📍 Local: *${local}*`;
+
+        if (pacote && pacote !== "Ainda não decidi") {
+          message += `\n📦 Coleção de interesse: *${pacote}*`;
+        }
+
+        if (sonho) {
+          message += `\n\n✨ *Meu Sonho:* ${sonho}`;
+        }
+
+        if (msgUser) {
+          message += `\n\n💬 *Obs:* ${msgUser}`;
         }
 
         const whatsappUrl = `https://wa.me/5516999999999?text=${encodeURIComponent(message)}`;
