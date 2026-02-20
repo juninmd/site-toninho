@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const orcamento = formData.get('orcamento');
         const pacote = formData.get('pacote');
         const sonho = formData.get('sonho');
+        const origem = formData.get('origem');
         const msgUser = formData.get('mensagem');
 
         let message = `Olá, sou *${nome}*. Gostaria de uma proposta VIP para *${tipo}*.\n\n📅 Data: *${data}*\n📍 Local: *${local}*`;
@@ -115,6 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (sonho) {
           message += `\n\n✨ *Meu Sonho:* ${sonho}`;
+        }
+
+        if (origem && origem !== "Selecione") {
+          message += `\n\n📢 *Conheceu por:* ${origem}`;
         }
 
         if (msgUser) {
