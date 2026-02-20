@@ -4,7 +4,8 @@
   "private": true,
   "description": "Portfolio site for Toninho Fotos e Filmagens",
   "scripts": {
-    "build": "exit 0"
+    "test": "npx html-validate public/index.html",
+    "build": "echo 'Static build'"
   },
   "devDependencies": {
     "html-validate": "^8.20.1"
