@@ -37,7 +37,7 @@
         <h1>Sua História, Uma Obra de Arte.</h1>
         <p>Mais do que fotos, entregamos herança visual. Sua história contada com emoção, arte e a segurança de 28 anos de experiência.</p>
         <div class="hero-actions">
-          <a href="#contato" class="btn btn-primary">Verificar Disponibilidade &amp; Orçamento</a>
+          <a href="#contato" class="btn btn-primary">Verificar Disponibilidade</a>
           <a href="#portfolio" class="btn btn-ghost">Ver Portfólio</a>
         </div>
         <ul class="hero-badges">
@@ -139,7 +139,7 @@
               <li><i class="fas fa-check"></i> Galeria Online (3 meses)</li>
               <li><i class="fas fa-check"></i> Entrega em 15 dias</li>
             </ul>
-            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Tenho interesse neste</a>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Quero saber mais</a>
           </article>
           <article class="card service-card featured">
             <span class="tag">Mais Escolhido pelas Noivas</span>
@@ -152,7 +152,7 @@
               <li><i class="fas fa-check"></i> Álbum Premium 25x25</li>
               <li><i class="fas fa-check"></i> Pen Drive Personalizado</li>
             </ul>
-            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Tenho interesse neste</a>
+            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Quero saber mais</a>
           </article>
           <article class="card service-card">
             <h3>Obra-Prima</h3>
@@ -164,7 +164,7 @@
               <li><i class="fas fa-check"></i> Álbum Luxo 30x30 + Maleta</li>
               <li><i class="fas fa-check"></i> Same Day Edit (Trailer na festa)</li>
             </ul>
-            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Tenho interesse neste</a>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Quero saber mais</a>
           </article>
         </div>
       </div>
@@ -247,10 +247,21 @@
           <label>Qual seu maior sonho para esse dia?
              <textarea name="sonho" rows="2" placeholder="Ex: Quero fotos espontâneas, muita emoção na cerimônia..." aria-label="Qual seu maior sonho para esse dia?"></textarea>
           </label>
+          <label>Onde nos conheceu?
+             <select name="origem" aria-label="Onde nos conheceu?">
+               <option value="">Selecione</option>
+               <option>Google</option>
+               <option>Instagram</option>
+               <option>Indicação de Amigos</option>
+               <option>Cerimonialista</option>
+               <option>Outro</option>
+             </select>
+          </label>
           <label>Mensagem ou Dúvida
             <textarea name="mensagem" rows="3" placeholder="Mais algum detalhe?" aria-label="Mensagem ou Dúvida"></textarea>
           </label>
           <button type="submit" class="btn btn-primary" style="width: 100%;">Solicitar Proposta VIP</button>
+          <p class="form-security"><i class="fas fa-lock"></i> Seus dados estão seguros.</p>
         </form>
       </div>
     </section>
