@@ -45,6 +45,7 @@
           <a href="#contato" class="btn btn-primary">Verificar Disponibilidade</a>
           <a href="#portfolio" class="btn btn-ghost">Ver Portfólio</a>
         </div>
+        <div class="google-verified"><i class="fas fa-check-circle"></i> Verificado pelo Google</div>
         <ul class="hero-badges">
           <li><i class="fas fa-camera"></i> 28 anos de história</li>
           <li><i class="fas fa-heart"></i> +1500 Sonhos realizados</li>
@@ -130,6 +131,35 @@
       </div>
     </section>
 
+    <section id="trust-badges" class="section section-light" style="padding: 40px 0; background: #fdfcfb;">
+      <div class="container" style="text-align: center;">
+        <p class="kicker">Por que escolher o Toninho?</p>
+        <h2 style="font-size: 1.8rem; margin-bottom: 30px;">Reconhecimento e Garantia</h2>
+        <div class="grid trust-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+          <div class="trust-item">
+            <i class="fas fa-camera-retro" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">28 Anos de Tradição</h3>
+            <p style="font-size: 0.9rem; color: var(--muted);">Desde 1996 registrando histórias em Franca.</p>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-users" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">+1.500 Casais</h3>
+            <p style="font-size: 0.9rem; color: var(--muted);">Clientes satisfeitos e memórias eternizadas.</p>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-star" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">5 Estrelas</h3>
+            <p style="font-size: 0.9rem; color: var(--muted);">Nota máxima no Google e Facebook.</p>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-award" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Premiado</h3>
+            <p style="font-size: 0.9rem; color: var(--muted);">Reconhecido pela excelência artística.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="servicos" class="section section-light">
       <div class="container">
         <p class="kicker">Pacotes &amp; Investimento</p>
@@ -138,18 +168,20 @@
           <article class="card service-card">
             <h3>Essencial</h3>
             <p class="price">R$ 1.890 <span style="font-size: 0.9rem; color: #666; font-weight: 400;">(à vista)</span></p>
+            <p class="pricing-installment-highlight">em até 12x no cartão</p>
             <ul>
               <li><i class="fas fa-check"></i> Cobertura Civil + Ensaio</li>
               <li><i class="fas fa-check"></i> 150 fotos editadas</li>
               <li><i class="fas fa-check"></i> Galeria Online (3 meses)</li>
               <li><i class="fas fa-check"></i> Entrega em 15 dias</li>
             </ul>
-            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Quero saber mais</a>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Essencial')">Solicitar Orçamento</a>
           </article>
           <article class="card service-card featured">
             <span class="tag">Mais Escolhido pelas Noivas</span>
             <h3>Cinema</h3>
             <p class="price">R$ 3.590 <span style="font-size: 0.9rem; color: #666; font-weight: 400;">(à vista)</span></p>
+            <p class="pricing-installment-highlight">em até 12x no cartão</p>
             <ul>
               <li><i class="fas fa-check"></i> <strong>Cobertura Completa (8h)</strong></li>
               <li><i class="fas fa-check"></i> Filme 4K Cinematográfico</li>
@@ -157,11 +189,12 @@
               <li><i class="fas fa-check"></i> Álbum Premium 25x25</li>
               <li><i class="fas fa-check"></i> Pen Drive Personalizado</li>
             </ul>
-            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Quero saber mais</a>
+            <a href="#contato" class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="selectPackage('Cinema')">Solicitar Orçamento</a>
           </article>
           <article class="card service-card">
             <h3>Obra-Prima</h3>
             <p class="price">R$ 5.900 <span style="font-size: 0.9rem; color: #666; font-weight: 400;">(à vista)</span></p>
+            <p class="pricing-installment-highlight">em até 12x no cartão</p>
             <ul>
               <li><i class="fas fa-check"></i> Cobertura Ilimitada</li>
               <li><i class="fas fa-check"></i> 2 Fotógrafos + 2 Cinegrafistas</li>
@@ -169,7 +202,7 @@
               <li><i class="fas fa-check"></i> Álbum Luxo 30x30 + Maleta</li>
               <li><i class="fas fa-check"></i> Same Day Edit (Trailer na festa)</li>
             </ul>
-            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Quero saber mais</a>
+            <a href="#contato" class="btn btn-ghost" style="width: 100%; margin-top: 15px; border-color: var(--gold); color: var(--text);" onclick="selectPackage('Obra-Prima')">Solicitar Orçamento</a>
           </article>
         </div>
       </div>
@@ -307,34 +340,6 @@
     </div>
   </section>
 
-  <section id="trust-badges" class="section section-light" style="padding: 40px 0; background: #fdfcfb;">
-    <div class="container" style="text-align: center;">
-      <p class="kicker">Por que escolher o Toninho?</p>
-      <h2 style="font-size: 1.8rem; margin-bottom: 30px;">Reconhecimento e Garantia</h2>
-      <div class="grid trust-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
-        <div class="trust-item">
-          <i class="fas fa-camera-retro" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
-          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">28 Anos de Tradição</h3>
-          <p style="font-size: 0.9rem; color: var(--muted);">Desde 1996 registrando histórias em Franca.</p>
-        </div>
-        <div class="trust-item">
-          <i class="fas fa-users" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
-          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">+1.500 Casais</h3>
-          <p style="font-size: 0.9rem; color: var(--muted);">Clientes satisfeitos e memórias eternizadas.</p>
-        </div>
-        <div class="trust-item">
-          <i class="fas fa-star" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
-          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">5 Estrelas</h3>
-          <p style="font-size: 0.9rem; color: var(--muted);">Nota máxima no Google e Facebook.</p>
-        </div>
-        <div class="trust-item">
-          <i class="fas fa-award" style="font-size: 2.5rem; color: var(--gold); margin-bottom: 15px;"></i>
-          <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Premiado</h3>
-          <p style="font-size: 0.9rem; color: var(--muted);">Reconhecido pela excelência artística.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer">
     <p><strong>Toninho Fotos e Filmagens</strong></p>
