@@ -4,6 +4,10 @@
   "private": true,
   "description": "Portfolio site for Toninho Fotos e Filmagens",
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html custom.css script.js fotoAntonio.jpg video.mp4 robots.txt sitemap.xml _redirects dist/"
+    "build": "rm -rf dist && mkdir -p dist && cp index.html custom.css script.js fotoAntonio.jpg video.mp4 robots.txt sitemap.xml _redirects dist/",
+    "test": "html-validate index.html"
+  },
+  "devDependencies": {
+    "html-validate": "^8.29.1"
   }
 }
