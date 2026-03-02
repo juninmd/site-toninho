@@ -128,6 +128,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const whatsappUrl = `https://wa.me/5516999999999?text=${encodeURIComponent(message)}`;
 
+        // Conversion Tracking Placeholders
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            'event_category': 'engagement',
+            'event_label': pacote || 'Contato Geral',
+            'value': orcamento ? parseFloat(orcamento.replace(/\D/g, '')) || 0 : 0
+          });
+        }
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: pacote || 'Contato Geral',
+            value: orcamento ? parseFloat(orcamento.replace(/\D/g, '')) || 0 : 0,
+            currency: 'BRL'
+          });
+        }
+
         // Open WhatsApp
         window.open(whatsappUrl, '_blank');
 

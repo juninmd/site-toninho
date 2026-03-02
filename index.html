@@ -15,6 +15,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="custom.css">
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Toninho Fotos e Filmagens",
+    "image": "https://toninhofotosefilmagens.com.br/fotoAntonio.jpg",
+    "url": "https://toninhofotosefilmagens.com.br",
+    "telephone": "+5516999999999",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Exemplo, 123",
+      "addressLocality": "Franca",
+      "addressRegion": "SP",
+      "postalCode": "14400-000",
+      "addressCountry": "BR"
+    },
+    "description": "Eternize seu casamento com Toninho Fotos e Filmagens. Fotografia e Cinema 4K com 28 anos de tradição em Franca-SP.",
+    "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00"
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -358,7 +380,7 @@
   </footer>
 
   <!-- Sticky WhatsApp Button -->
-  <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+  <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" onclick="if(typeof gtag === 'function'){gtag('event', 'click_whatsapp', {'event_category': 'engagement'});} if(typeof fbq === 'function'){fbq('trackCustom', 'ClickWhatsApp');}">
     <i class="fab fa-whatsapp"></i>
   </a>
 
