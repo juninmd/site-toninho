@@ -8,6 +8,6 @@
     "test": "html-validate index.html"
   },
   "devDependencies": {
-    "html-validate": "^8.29.1"
+    "html-validate": "^10.11.1"
   }
 }
