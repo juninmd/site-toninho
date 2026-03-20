@@ -131,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Conversion Tracking Placeholders
         const orcamentoValue = orcamento ? parseFloat((orcamento.split('-')[0]).replace(/\D/g, '')) || 0 : 0;
 
+        const orcamentoValue = orcamento ? parseFloat((orcamento.split('-')[0]).replace(/\D/g, '')) || 0 : 0;
+
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', {
             'event_category': 'engagement',
