@@ -147,6 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currency: 'BRL'
           });
         }
+          });
+        }
 
         // Open WhatsApp
         window.open(whatsappUrl, '_blank');
