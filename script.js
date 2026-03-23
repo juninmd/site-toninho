@@ -52,7 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ctaBtn = document.createElement('a');
   ctaBtn.classList.add('lightbox-cta');
-  ctaBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Quero um orçamento';
+  const ctaIcon = document.createElement('i');
+  ctaIcon.classList.add('fab', 'fa-whatsapp');
+  ctaBtn.append(ctaIcon, ' Quero um orçamento');
   ctaBtn.target = '_blank';
   ctaBtn.rel = 'noopener noreferrer';
   lightbox.appendChild(ctaBtn);
