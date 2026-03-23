@@ -1,3 +1,10 @@
+// --- Configurações do Site ---
+const CONFIG = {
+  // Número de WhatsApp principal para receber os contatos.
+  // Formato: DDI + DDD + Número (ex: 5516999999999)
+  whatsappNumber: '5516999999999'
+};
+
 window.selectPackage = function(pacoteName) {
   const select = document.getElementById('pacote-select');
   if (select) {
@@ -43,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.ariaLabel = 'Fechar Galeria';
   lightbox.appendChild(closeBtn);
 
+  const ctaBtn = document.createElement('a');
+  ctaBtn.classList.add('lightbox-cta');
+  ctaBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Quero um orçamento';
+  ctaBtn.target = '_blank';
+  ctaBtn.rel = 'noopener noreferrer';
+  lightbox.appendChild(ctaBtn);
+
   document.body.appendChild(lightbox);
 
   // Use .portfolio-card click to handle overlay issues
@@ -50,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cards.forEach(card => {
     card.addEventListener('click', () => {
       const img = card.querySelector('img');
+      const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'esta foto';
       if (img) {
         lightbox.classList.add('active');
         const newImg = document.createElement('img');
@@ -62,6 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         lightbox.appendChild(newImg);
+
+        // Update CTA link specifically for this photo
+        const msg = encodeURIComponent(`Olá, estava olhando o portfólio no site e amei a foto "${title}". Gostaria de um orçamento!`);
+        ctaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`;
       }
     });
   });
@@ -126,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
           message += `\n\n💬 *Obs:* ${msgUser}`;
         }
 
-        const whatsappUrl = `https://wa.me/5516999999999?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
         // Conversion Tracking Placeholders
         const orcamentoValue = orcamento ? parseFloat((orcamento.split('-')[0]).replace(/\D/g, '')) || 0 : 0;
@@ -161,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Submission error (Netlify):', error);
         // Fallback: Construct message and open WhatsApp anyway
         const nome = formData.get('nome');
-        const whatsappUrl = `https://wa.me/5516999999999?text=Ol%C3%A1%2C%20sou%20${encodeURIComponent(nome)}.%20Tive%20um%20problema%20no%20envio%20do%20form%2C%20mas%20gostaria%20de%20um%20or%C3%A7amento.`;
+        const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=Ol%C3%A1%2C%20sou%20${encodeURIComponent(nome)}.%20Tive%20um%20problema%20no%20envio%20do%20form%2C%20mas%20gostaria%20de%20um%20or%C3%A7amento.`;
         window.open(whatsappUrl, '_blank');
 
         form.innerHTML = `

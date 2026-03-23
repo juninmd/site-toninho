@@ -344,6 +344,29 @@ a { color: inherit; text-decoration: none; }
   color: var(--gold);
 }
 
+.lightbox-cta {
+  position: absolute;
+  bottom: 30px;
+  background: #25d366;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1rem;
+  z-index: 3002;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lightbox-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  color: #fff;
+}
+
 /* FAQ Section */
 .faq-grid {
   max-width: 800px;
