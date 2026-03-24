@@ -339,6 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
           });
         }
+          });
+        }
 
         // Open WhatsApp
         window.open(whatsappUrl, '_blank');
