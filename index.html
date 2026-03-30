@@ -37,6 +37,60 @@
     "openingHours": "Mo,Tu,We,Th,Fr 09:00-18:00"
   }
   </script>
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Pacote Essencial de Fotografia",
+          "description": "Cobertura Civil Simples + Ensaio, 150 fotos editadas, Galeria Online.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "price": "1890.00",
+            "url": "https://toninhofotosefilmagens.com.br/#servicos"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Pacote Cinema - Fotografia e Filme",
+          "description": "Cobertura Completa (8h), Filme 4K, Drone, Álbum Premium 25x25.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "price": "3590.00",
+            "url": "https://toninhofotosefilmagens.com.br/#servicos"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "Pacote Obra-Prima - Fotografia e Filme",
+          "description": "Cobertura Ilimitada, 2 Fotógrafos + 2 Cinegrafistas, Pré e Pós Wedding, Álbum Luxo 30x30, Same Day Edit.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "price": "5900.00",
+            "url": "https://toninhofotosefilmagens.com.br/#servicos"
+          }
+        }
+      }
+    ]
+  }
+  </script>
   <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
@@ -428,10 +482,13 @@
     <p>© 2025 Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Sticky WhatsApp Button -->
-  <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="whatsapp-float-button">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- Sticky WhatsApp Button with Tooltip -->
+  <div class="whatsapp-container">
+    <div class="whatsapp-tooltip">Orçamento Rápido</div>
+    <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="whatsapp-float-button">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
 
   <script src="script.js"></script>
 </body>
