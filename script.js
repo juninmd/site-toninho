@@ -94,11 +94,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Form Dual Capture Logic
+  // --- Multi-step Form Logic ---
   const form = document.querySelector('form[name="contato"]');
   if (form) {
+    const steps = form.querySelectorAll('.form-step');
+    const indicators = form.querySelectorAll('.step-indicator');
+    const nextBtns = form.querySelectorAll('.btn-next');
+    const prevBtns = form.querySelectorAll('.btn-prev');
+    let currentStep = 0;
+
+    function showStep(stepIndex) {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index === stepIndex);
+      });
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === stepIndex);
+        indicator.classList.toggle('completed', index < stepIndex);
+      });
+    }
+
+    function validateStep(stepIndex) {
+      const currentStepEl = steps[stepIndex];
+      const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+      let isValid = true;
+      inputs.forEach(input => {
+        if (!input.checkValidity()) {
+          input.reportValidity();
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
+
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (validateStep(currentStep)) {
+          currentStep++;
+          if (currentStep >= steps.length) currentStep = steps.length - 1;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentStep--;
+        if (currentStep < 0) currentStep = 0;
+        showStep(currentStep);
+      });
+    });
+
+    // Form Dual Capture Logic
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      if (currentStep < steps.length - 1) {
+        const nextBtn = steps[currentStep].querySelector('.btn-next');
+        if (nextBtn) nextBtn.click();
+        return;
+      }
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;

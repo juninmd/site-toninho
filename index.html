@@ -120,7 +120,7 @@
 
     <section class="section section-light" id="sobre">
       <div class="container two-col">
-        <img src="fotoAntonio.jpg" alt="Toninho, fotógrafo especialista em casamentos" class="profile-img">
+        <img src="fotoAntonio.jpg" alt="Toninho, fotógrafo especialista em casamentos" class="profile-img" loading="lazy">
         <div>
           <p class="kicker">Quem é o Toninho</p>
           <h2>O olhar experiente que seu grande dia merece</h2>
@@ -309,6 +309,9 @@
             <cite>João &amp; Lucas — Casamento Civil</cite>
           </blockquote>
         </div>
+        <div style="text-align: center; margin-top: 40px;">
+<a href="https://g.page/r/YOUR_BUSINESS_ID/review" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Ver mais avaliações no Google <i class="fab fa-google" style="margin-left: 8px;"></i></a>
+        </div>
       </div>
     </section>
 
@@ -320,67 +323,92 @@
           <p>Devido à alta demanda, trabalhamos com um número limitado de eventos por ano. Preencha o formulário abaixo com os detalhes do seu evento e descubra se ainda temos a sua data livre para criar a melhor proposta para você.</p>
           <p style="margin-top: 20px;"><i class="fas fa-bolt" style="color: var(--gold);"></i> <strong>Prioridade de Atendimento:</strong> Resposta via WhatsApp em até 15 minutos.</p>
         </div>
-        <form name="contato" method="POST" data-netlify="true" class="contact-form">
+        <form name="contato" method="POST" data-netlify="true" class="contact-form" id="multi-step-form">
           <input type="hidden" name="form-name" value="contato">
-          <label>Seu Nome
-            <input type="text" name="nome" placeholder="Como podemos te chamar?" required aria-label="Seu Nome">
-          </label>
-          <label>Seu WhatsApp
-            <input type="tel" name="whatsapp" placeholder="(16) 99999-9999" required aria-label="Seu WhatsApp">
-          </label>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-             <label>Data do Evento
-                <input type="date" name="data" required aria-label="Data do Evento">
-             </label>
-             <label>Tipo de Evento
-                <select name="evento" required aria-label="Tipo de Evento">
-                  <option value="">Selecione</option>
-                  <option>Casamento</option>
-                  <option>Pré-Wedding</option>
-                  <option>15 anos</option>
-                  <option>Corporativo</option>
-                </select>
-             </label>
+
+          <div class="form-progress">
+            <div class="step-indicator active">1. Pessoal</div>
+            <div class="step-indicator">2. Evento</div>
+            <div class="step-indicator">3. Detalhes</div>
           </div>
-          <label>Local do Evento (Cidade/Espaço)
-             <input type="text" name="local" placeholder="Ex: Franca-SP, Villa Ventura" required aria-label="Local do Evento">
-          </label>
-          <label>Investimento Previsto
-             <select name="orcamento" required aria-label="Investimento Previsto">
-                <option value="">Selecione uma faixa</option>
-                <option value="Até R$ 2.000 (Plano Essencial)">Até R$ 2.000 (Plano Essencial)</option>
-                <option value="R$ 3.000 - R$ 5.000 (Plano Cinema)">R$ 3.000 - R$ 5.000 (Plano Cinema)</option>
-                <option value="Acima de R$ 6.000 (Plano Obra-Prima)">Acima de R$ 6.000 (Plano Obra-Prima)</option>
-                <option value="Outro Valor">Outro Valor</option>
-             </select>
-          </label>
-          <label>Pacote de Interesse (Opcional)
-            <select name="pacote" id="pacote-select" aria-label="Pacote de Interesse">
-              <option value="">Ainda não decidi</option>
-              <option value="Essencial">Essencial</option>
-              <option value="Cinema">Cinema (Mais Escolhido)</option>
-              <option value="Obra-Prima">Obra-Prima</option>
-            </select>
-          </label>
-          <label>Qual o estilo de foto que você mais gosta? (Seu maior sonho)
-             <textarea name="sonho" rows="2" placeholder="Ex: Fotos espontâneas, foco na emoção, documentário..." aria-label="Qual o estilo de foto que você mais gosta?"></textarea>
-          </label>
-          <label>Como você conheceu nosso trabalho?
-             <select name="origem" aria-label="Onde nos conheceu?">
-               <option value="">Selecione</option>
-               <option>Pesquisa no Google</option>
-               <option>Instagram / Redes Sociais</option>
-               <option>Indicação de Amigos/Família</option>
-               <option>Indicação de Fornecedor</option>
-               <option>Outro</option>
-             </select>
-          </label>
-          <label>Informações Adicionais / Dúvidas
-            <textarea name="mensagem" rows="2" placeholder="Ex: Teremos making of? Aceita pets na cerimônia?" aria-label="Mensagem ou Dúvida"></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary btn-block btn-form-submit">Verificar Disponibilidade e Orçamento</button>
-          <p class="form-security form-security--modified"><i class="fas fa-lock"></i> Seus dados estão 100% seguros conosco.</p>
-          <p class="form-note form-note--highlighted form-note--modified">Este orçamento é gratuito e não gera nenhum compromisso de contratação.</p>
+
+          <div class="form-step active" data-step="1">
+            <label>Seu Nome
+              <input type="text" name="nome" placeholder="Como podemos te chamar?" required aria-label="Seu Nome">
+            </label>
+            <label>Seu WhatsApp
+              <input type="tel" name="whatsapp" placeholder="(16) 99999-9999" required aria-label="Seu WhatsApp">
+            </label>
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary btn-next">Próximo</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+               <label>Data do Evento
+                  <input type="date" name="data" required aria-label="Data do Evento">
+               </label>
+               <label>Tipo de Evento
+                  <select name="evento" required aria-label="Tipo de Evento">
+                    <option value="">Selecione</option>
+                    <option>Casamento</option>
+                    <option>Pré-Wedding</option>
+                    <option>15 anos</option>
+                    <option>Corporativo</option>
+                  </select>
+               </label>
+            </div>
+            <label>Local do Evento (Cidade/Espaço)
+               <input type="text" name="local" placeholder="Ex: Franca-SP, Villa Ventura" required aria-label="Local do Evento">
+            </label>
+            <div class="form-actions" style="display: flex; gap: 10px;">
+              <button type="button" class="btn btn-ghost btn-prev" style="color: var(--text); border-color: #ccc;">Voltar</button>
+              <button type="button" class="btn btn-primary btn-next" style="flex: 1;">Próximo</button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <label>Investimento Previsto
+               <select name="orcamento" required aria-label="Investimento Previsto">
+                  <option value="">Selecione uma faixa</option>
+                  <option value="Até R$ 2.000 (Plano Essencial)">Até R$ 2.000 (Plano Essencial)</option>
+                  <option value="R$ 3.000 - R$ 5.000 (Plano Cinema)">R$ 3.000 - R$ 5.000 (Plano Cinema)</option>
+                  <option value="Acima de R$ 6.000 (Plano Obra-Prima)">Acima de R$ 6.000 (Plano Obra-Prima)</option>
+                  <option value="Outro Valor">Outro Valor</option>
+               </select>
+            </label>
+            <label>Pacote de Interesse (Opcional)
+              <select name="pacote" id="pacote-select" aria-label="Pacote de Interesse">
+                <option value="">Ainda não decidi</option>
+                <option value="Essencial">Essencial</option>
+                <option value="Cinema">Cinema (Mais Escolhido)</option>
+                <option value="Obra-Prima">Obra-Prima</option>
+              </select>
+            </label>
+            <label>Qual o estilo de foto que você mais gosta? (Seu maior sonho)
+               <textarea name="sonho" rows="2" placeholder="Ex: Fotos espontâneas, foco na emoção, documentário..." aria-label="Qual o estilo de foto que você mais gosta?"></textarea>
+            </label>
+            <label>Como você conheceu nosso trabalho?
+               <select name="origem" aria-label="Onde nos conheceu?">
+                 <option value="">Selecione</option>
+                 <option>Pesquisa no Google</option>
+                 <option>Instagram / Redes Sociais</option>
+                 <option>Indicação de Amigos/Família</option>
+                 <option>Indicação de Fornecedor</option>
+                 <option>Outro</option>
+               </select>
+            </label>
+            <label>Informações Adicionais / Dúvidas
+              <textarea name="mensagem" rows="2" placeholder="Ex: Teremos making of? Aceita pets na cerimônia?" aria-label="Mensagem ou Dúvida"></textarea>
+            </label>
+            <div class="form-actions" style="display: flex; gap: 10px; margin-bottom: 10px;">
+              <button type="button" class="btn btn-ghost btn-prev" style="color: var(--text); border-color: #ccc;">Voltar</button>
+              <button type="submit" class="btn btn-primary btn-block btn-form-submit" style="flex: 1;">Verificar Disponibilidade</button>
+            </div>
+            <p class="form-security form-security--modified"><i class="fas fa-lock"></i> Seus dados estão 100% seguros conosco.</p>
+            <p class="form-note form-note--highlighted form-note--modified">Este orçamento é gratuito e não gera nenhum compromisso de contratação.</p>
+          </div>
         </form>
       </div>
     </section>
@@ -431,6 +459,7 @@
   <!-- Sticky WhatsApp Button -->
   <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" id="whatsapp-float-button">
     <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Restam poucas datas!</span>
   </a>
 
   <script src="script.js"></script>
