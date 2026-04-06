@@ -148,6 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      if (currentStep < steps.length - 1) {
+        const nextBtn = steps[currentStep].querySelector('.btn-next');
+        if (nextBtn) nextBtn.click();
+        return;
+      }
+
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;
       submitBtn.innerText = 'Enviando...';
