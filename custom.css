@@ -32,6 +32,9 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   padding: 8px 16px;
   font-size: .86rem;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
 }
 
 .topbar-cta {
@@ -53,7 +56,7 @@ a { color: inherit; text-decoration: none; }
 
 .navbar {
   position: sticky;
-  top: 0;
+  top: 34px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -243,6 +246,48 @@ a { color: inherit; text-decoration: none; }
   padding: 24px;
   border: 1px solid #e7e0d4;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.form-progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f0f0f5;
+  padding-bottom: 12px;
+}
+
+.step-indicator {
+  flex: 1;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ccc;
+  position: relative;
+}
+
+.step-indicator.active {
+  color: var(--gold);
+}
+
+.step-indicator.completed {
+  color: var(--text);
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.btn-next, .btn-prev {
+  width: 100%;
 }
 .contact-form label { display: block; font-weight: 600; margin-bottom: 12px; font-size: .94rem; }
 .contact-form input,
@@ -545,4 +590,37 @@ a { color: inherit; text-decoration: none; }
   right: 10px;
   border: 2px solid #fff;
   animation: pulse-red 2s infinite;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--gold);
+  color: #1e1912;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  pointer-events: none;
+  animation: float-tooltip 3s ease-in-out infinite;
+}
+
+.whatsapp-tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--gold);
+}
+
+@keyframes float-tooltip {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(-5px); }
 }
