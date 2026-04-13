@@ -78,6 +78,57 @@
     ]
   }
   </script>
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Pacote Essencial",
+          "description": "Cobertura Civil Simples (Sem Recepção), 150 fotos editadas, Galeria Online.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "price": "1890.00"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Pacote Cinema",
+          "description": "Cobertura Completa (8h), Filme 4K Cinematográfico, Drone incluso, Álbum Premium 25x25.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "price": "3590.00"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "Pacote Obra-Prima",
+          "description": "Cobertura Ilimitada, 2 Fotógrafos + 2 Cinegrafistas, Pré e Pós Wedding, Álbum Luxo 30x30.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "BRL",
+            "price": "5900.00"
+          }
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -123,7 +174,7 @@
         <img src="fotoAntonio.jpg" alt="Toninho, fotógrafo especialista em casamentos" class="profile-img" loading="lazy">
         <div>
           <p class="kicker">Quem é o Toninho</p>
-          <h2>O olhar experiente que seu grande dia merece</h2>
+          <h2>Você Merece Reviver Cada Segundo</h2>
           <p>Com quase três décadas dedicadas à fotografia de eventos em Franca e região, aprendi que cada casamento tem uma batida única. Meu trabalho é sintonizar minha lente com o seu coração.</p>
           <div class="checklist">
             <p>✅ Direção leve e descontraída (nada de poses robóticas).</p>
@@ -242,7 +293,7 @@
             <p class="price">R$ 1.890 <span style="font-size: 0.9rem; color: #666; font-weight: 400;">(à vista)</span></p>
             <p class="pricing-installment-highlight">em até 12x no cartão</p>
             <ul>
-              <li><i class="fas fa-check"></i> Cobertura Civil + Ensaio</li>
+              <li><i class="fas fa-check"></i> Cobertura Civil Simples (Sem Recepção)</li>
               <li><i class="fas fa-check"></i> 150 fotos editadas</li>
               <li><i class="fas fa-check"></i> Galeria Online (3 meses)</li>
               <li><i class="fas fa-check"></i> Entrega em 15 dias</li>
@@ -295,16 +346,25 @@
         <div class="grid testimonials-grid">
           <blockquote class="card testimonial">
             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Mariana" class="testimonial-img">
+            <div style="color: var(--gold); margin-bottom: 10px;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
             “O Toninho foi incrível! Me deixou super calma no making of e as fotos ficaram dignas de revista. O vídeo me faz chorar toda vez que assisto.”
             <cite>Mariana &amp; Pedro — Casamento em 2023</cite>
           </blockquote>
           <blockquote class="card testimonial">
             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Carla Souza" class="testimonial-img">
+            <div style="color: var(--gold); margin-bottom: 10px;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
             “Contratamos para os 15 anos da minha filha e foi a melhor escolha. Pontualidade, profissionalismo e um carinho enorme com a nossa família.”
             <cite>Carla Souza — Mãe da Debutante</cite>
           </blockquote>
           <blockquote class="card testimonial">
             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="João" class="testimonial-img">
+            <div style="color: var(--gold); margin-bottom: 10px;">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
             “Eu tinha medo de ficar travado nas fotos, mas a direção dele foi perfeita. O álbum ficou maravilhoso, uma verdadeira joia da nossa família.”
             <cite>João &amp; Lucas — Casamento Civil</cite>
           </blockquote>
@@ -404,7 +464,7 @@
             </label>
             <div class="form-actions" style="display: flex; gap: 10px; margin-bottom: 10px;">
               <button type="button" class="btn btn-ghost btn-prev" style="color: var(--text); border-color: #ccc;">Voltar</button>
-              <button type="submit" class="btn btn-primary btn-block btn-form-submit" style="flex: 1;">Verificar Disponibilidade</button>
+              <button type="submit" class="btn btn-primary btn-block btn-form-submit" style="flex: 1;">Receber Meu Orçamento Gratuito</button>
             </div>
             <p class="form-security form-security--modified"><i class="fas fa-lock"></i> Seus dados estão 100% seguros conosco.</p>
             <p class="form-note form-note--highlighted form-note--modified">Este orçamento é gratuito e não gera nenhum compromisso de contratação.</p>
