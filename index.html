@@ -37,9 +37,9 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
+      globalThis.dataLayer = globalThis.dataLayer || [];
       function gtag(...args) {
-        window.dataLayer.push(args);
+        globalThis.dataLayer.push(args);
       }
       gtag("js", new Date());
       gtag("config", "G-XXXXXXXXXX");
@@ -48,22 +48,22 @@
     <!-- Meta Pixel Code -->
     <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
     <script>
-      if (!window.fbq) {
-        window.fbq = function (...args) {
-          if (window.fbq.callMethod) {
-            window.fbq.callMethod(...args);
+      if (!globalThis.fbq) {
+        globalThis.fbq = function (...args) {
+          if (globalThis.fbq.callMethod) {
+            globalThis.fbq.callMethod(...args);
           } else {
-            window.fbq.queue.push(args);
+            globalThis.fbq.queue.push(args);
           }
         };
-        window._fbq = window.fbq;
-        window.fbq.push = window.fbq;
-        window.fbq.loaded = true;
-        window.fbq.version = "2.0";
-        window.fbq.queue = [];
+        globalThis._fbq = globalThis.fbq;
+        globalThis.fbq.push = globalThis.fbq;
+        globalThis.fbq.loaded = true;
+        globalThis.fbq.version = "2.0";
+        globalThis.fbq.queue = [];
       }
-      window.fbq("init", "XXXXXXXXXXXXXXXX");
-      window.fbq("track", "PageView");
+      globalThis.fbq("init", "XXXXXXXXXXXXXXXX");
+      globalThis.fbq("track", "PageView");
     </script>
     <!-- End Meta Pixel Code -->
 
