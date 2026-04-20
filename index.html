@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -35,47 +35,35 @@
     <link rel="stylesheet" href="custom.css" />
 
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      function gtag(...args) {
+        window.dataLayer.push(args);
       }
       gtag("js", new Date());
-
       gtag("config", "G-XXXXXXXXXX");
     </script>
 
     <!-- Meta Pixel Code -->
+    <script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
     <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
+      if (!window.fbq) {
+        window.fbq = function (...args) {
+          if (window.fbq.callMethod) {
+            window.fbq.callMethod(...args);
+          } else {
+            window.fbq.queue.push(args);
+          }
         };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-      fbq("init", "XXXXXXXXXXXXXXXX");
-      fbq("track", "PageView");
+        window._fbq = window.fbq;
+        window.fbq.push = window.fbq;
+        window.fbq.loaded = true;
+        window.fbq.version = "2.0";
+        window.fbq.queue = [];
+      }
+      window.fbq("init", "XXXXXXXXXXXXXXXX");
+      window.fbq("track", "PageView");
     </script>
     <!-- End Meta Pixel Code -->
 
@@ -229,6 +217,7 @@
           poster="fotoAntonio.jpg"
         >
           <source src="video.mp4" type="video/mp4" />
+          <track kind="captions" src="captions.vtt" srclang="pt" label="Português" />
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -653,12 +642,8 @@
                 alt="Mariana"
                 class="testimonial-img"
               />
-              <div
-                class="testimonial-rating"
-                role="img"
-                aria-label="Avaliação: 5 estrelas"
-                style="color: var(--gold); margin-bottom: 10px"
-              >
+              <div class="testimonial-rating" style="color: var(--gold); margin-bottom: 10px">
+                <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">Avaliação: 5 estrelas</span>
                 <i class="fas fa-star" aria-hidden="true"></i
                 ><i class="fas fa-star" aria-hidden="true"></i
                 ><i class="fas fa-star" aria-hidden="true"></i
@@ -676,12 +661,8 @@
                 alt="Carla Souza"
                 class="testimonial-img"
               />
-              <div
-                class="testimonial-rating"
-                role="img"
-                aria-label="Avaliação: 5 estrelas"
-                style="color: var(--gold); margin-bottom: 10px"
-              >
+              <div class="testimonial-rating" style="color: var(--gold); margin-bottom: 10px">
+                <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">Avaliação: 5 estrelas</span>
                 <i class="fas fa-star" aria-hidden="true"></i
                 ><i class="fas fa-star" aria-hidden="true"></i
                 ><i class="fas fa-star" aria-hidden="true"></i
@@ -699,12 +680,8 @@
                 alt="João"
                 class="testimonial-img"
               />
-              <div
-                class="testimonial-rating"
-                role="img"
-                aria-label="Avaliação: 5 estrelas"
-                style="color: var(--gold); margin-bottom: 10px"
-              >
+              <div class="testimonial-rating" style="color: var(--gold); margin-bottom: 10px">
+                <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">Avaliação: 5 estrelas</span>
                 <i class="fas fa-star" aria-hidden="true"></i
                 ><i class="fas fa-star" aria-hidden="true"></i
                 ><i class="fas fa-star" aria-hidden="true"></i
