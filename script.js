@@ -2,78 +2,80 @@
 const CONFIG = {
   // Número de WhatsApp principal para receber os contatos.
   // Formato: DDI + DDD + Número (ex: 5516999999999)
-  whatsappNumber: '5516999999999'
+  whatsappNumber: "5516999999999",
 };
 
-window.selectPackage = function(pacoteName) {
-  const select = document.getElementById('pacote-select');
+window.selectPackage = function (pacoteName) {
+  const select = document.getElementById("pacote-select");
   if (select) {
     select.value = pacoteName;
-    const contactSection = document.getElementById('contato');
+    const contactSection = document.getElementById("contato");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // --- Portfolio Filtering ---
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-card');
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const portfolioItems = document.querySelectorAll(".portfolio-card");
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
       // Remove active from all
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
-      const filter = btn.getAttribute('data-filter');
+      const filter = btn.getAttribute("data-filter");
 
-      portfolioItems.forEach(item => {
-        const category = item.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          item.style.display = 'block';
+      portfolioItems.forEach((item) => {
+        const category = item.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          item.style.display = "block";
         } else {
-          item.style.display = 'none';
+          item.style.display = "none";
         }
       });
     });
   });
 
   // --- Lightbox Implementation ---
-  const lightbox = document.createElement('div');
-  lightbox.id = 'lightbox';
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
 
-  const closeBtn = document.createElement('button');
-  closeBtn.classList.add('close-lightbox');
-  closeBtn.innerHTML = '&times;';
-  closeBtn.ariaLabel = 'Fechar Galeria';
+  const closeBtn = document.createElement("button");
+  closeBtn.classList.add("close-lightbox");
+  closeBtn.innerHTML = "&times;";
+  closeBtn.ariaLabel = "Fechar Galeria";
   lightbox.appendChild(closeBtn);
 
-  const ctaBtn = document.createElement('a');
-  ctaBtn.classList.add('lightbox-cta');
-  const ctaIcon = document.createElement('i');
-  ctaIcon.classList.add('fab', 'fa-whatsapp');
-  ctaBtn.append(ctaIcon, ' Quero um orçamento');
-  ctaBtn.target = '_blank';
-  ctaBtn.rel = 'noopener noreferrer';
+  const ctaBtn = document.createElement("a");
+  ctaBtn.classList.add("lightbox-cta");
+  const ctaIcon = document.createElement("i");
+  ctaIcon.classList.add("fab", "fa-whatsapp");
+  ctaBtn.append(ctaIcon, " Quero um orçamento");
+  ctaBtn.target = "_blank";
+  ctaBtn.rel = "noopener noreferrer";
   lightbox.appendChild(ctaBtn);
 
   document.body.appendChild(lightbox);
 
   // Use .portfolio-card click to handle overlay issues
-  const cards = document.querySelectorAll('.portfolio-card');
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      const img = card.querySelector('img');
-      const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'esta foto';
+  const cards = document.querySelectorAll(".portfolio-card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      const img = card.querySelector("img");
+      const title = card.querySelector("h3")
+        ? card.querySelector("h3").innerText
+        : "esta foto";
       if (img) {
-        lightbox.classList.add('active');
-        const newImg = document.createElement('img');
+        lightbox.classList.add("active");
+        const newImg = document.createElement("img");
         newImg.src = img.src;
 
         // Clear previous image
-        const oldImg = lightbox.querySelector('img');
+        const oldImg = lightbox.querySelector("img");
         if (oldImg) {
           lightbox.removeChild(oldImg);
         }
@@ -81,43 +83,47 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.appendChild(newImg);
 
         // Update CTA link specifically for this photo
-        const msg = encodeURIComponent(`Olá, estava olhando o portfólio no site e amei a foto "${title}". Gostaria de um orçamento!`);
+        const msg = encodeURIComponent(
+          `Olá, estava olhando o portfólio no site e amei a foto "${title}". Gostaria de um orçamento!`,
+        );
         ctaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`;
       }
     });
   });
 
   // Close lightbox on click outside image or close button
-  lightbox.addEventListener('click', (e) => {
+  lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox || e.target === closeBtn) {
-      lightbox.classList.remove('active');
+      lightbox.classList.remove("active");
     }
   });
 
   // --- Multi-step Form Logic ---
   const form = document.querySelector('form[name="contato"]');
   if (form) {
-    const steps = form.querySelectorAll('.form-step');
-    const indicators = form.querySelectorAll('.step-indicator');
-    const nextBtns = form.querySelectorAll('.btn-next');
-    const prevBtns = form.querySelectorAll('.btn-prev');
+    const steps = form.querySelectorAll(".form-step");
+    const indicators = form.querySelectorAll(".step-indicator");
+    const nextBtns = form.querySelectorAll(".btn-next");
+    const prevBtns = form.querySelectorAll(".btn-prev");
     let currentStep = 0;
 
     function showStep(stepIndex) {
       steps.forEach((step, index) => {
-        step.classList.toggle('active', index === stepIndex);
+        step.classList.toggle("active", index === stepIndex);
       });
       indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === stepIndex);
-        indicator.classList.toggle('completed', index < stepIndex);
+        indicator.classList.toggle("active", index === stepIndex);
+        indicator.classList.toggle("completed", index < stepIndex);
       });
     }
 
     function validateStep(stepIndex) {
       const currentStepEl = steps[stepIndex];
-      const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+      const inputs = currentStepEl.querySelectorAll(
+        "input[required], select[required], textarea[required]",
+      );
       let isValid = true;
-      inputs.forEach(input => {
+      inputs.forEach((input) => {
         if (!input.checkValidity()) {
           input.reportValidity();
           isValid = false;
@@ -126,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return isValid;
     }
 
-    nextBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+    nextBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         if (validateStep(currentStep)) {
           currentStep++;
           if (currentStep >= steps.length) currentStep = steps.length - 1;
@@ -136,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    prevBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+    prevBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
         currentStep--;
         if (currentStep < 0) currentStep = 0;
         showStep(currentStep);
@@ -145,108 +151,110 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Form Dual Capture Logic
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
 
       if (currentStep < steps.length - 1) {
-        const nextBtn = steps[currentStep].querySelector('.btn-next');
+        const nextBtn = steps[currentStep].querySelector(".btn-next");
         if (nextBtn) nextBtn.click();
         return;
       }
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;
-      submitBtn.innerText = 'Enviando...';
+      submitBtn.innerText = "Enviando...";
       submitBtn.disabled = true;
 
       const formData = new FormData(form);
 
       // Submit to Netlify first (hidden)
-      fetch('/', {
-        method: 'POST',
+      fetch("/", {
+        method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
+        body: new URLSearchParams(formData).toString(),
       })
-      .then(() => {
-        // Construct WhatsApp Message
-        const nome = formData.get('nome');
-        const data = formData.get('data') || 'Data a definir';
-        const local = formData.get('local') || 'Local a definir';
-        const tipo = formData.get('evento');
-        const orcamento = formData.get('orcamento');
-        const pacote = formData.get('pacote');
-        const sonho = formData.get('sonho');
-        const origem = formData.get('origem');
-        const msgUser = formData.get('mensagem');
+        .then(() => {
+          // Construct WhatsApp Message
+          const nome = formData.get("nome");
+          const data = formData.get("data") || "Data a definir";
+          const local = formData.get("local") || "Local a definir";
+          const tipo = formData.get("evento");
+          const orcamento = formData.get("orcamento");
+          const pacote = formData.get("pacote");
+          const sonho = formData.get("sonho");
+          const origem = formData.get("origem");
+          const msgUser = formData.get("mensagem");
 
-        let message = `Olá, sou *${nome}*. Gostaria de uma proposta VIP para *${tipo}*.\n\n📅 Data: *${data}*\n📍 Local: *${local}*`;
+          let message = `Olá, sou *${nome}*. Gostaria de uma proposta VIP para *${tipo}*.\n\n📅 Data: *${data}*\n📍 Local: *${local}*`;
 
-        if (orcamento) {
-          message += `\n💰 Investimento: *${orcamento}*`;
-        }
+          if (orcamento) {
+            message += `\n💰 Investimento: *${orcamento}*`;
+          }
 
-        if (pacote && pacote !== "Ainda não decidi") {
-          message += `\n📦 Coleção de interesse: *${pacote}*`;
-        }
+          if (pacote && pacote !== "Ainda não decidi") {
+            message += `\n📦 Coleção de interesse: *${pacote}*`;
+          }
 
-        if (sonho) {
-          message += `\n\n✨ *Meu Sonho:* ${sonho}`;
-        }
+          if (sonho) {
+            message += `\n\n✨ *Meu Sonho:* ${sonho}`;
+          }
 
-        if (origem && origem !== "Selecione") {
-          message += `\n\n📢 *Conheceu por:* ${origem}`;
-        }
+          if (origem && origem !== "Selecione") {
+            message += `\n\n📢 *Conheceu por:* ${origem}`;
+          }
 
-        if (msgUser) {
-          message += `\n\n💬 *Obs:* ${msgUser}`;
-        }
+          if (msgUser) {
+            message += `\n\n💬 *Obs:* ${msgUser}`;
+          }
 
-        const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+          const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-        // Conversion Tracking Placeholders
-        const orcamentoValue = orcamento ? parseFloat((orcamento.split('-')[0]).replace(/\D/g, '')) || 0 : 0;
+          // Conversion Tracking Placeholders
+          const orcamentoValue = orcamento
+            ? parseFloat(orcamento.split("-")[0].replace(/\D/g, "")) || 0
+            : 0;
 
-        if (typeof gtag === 'function') {
-          gtag('event', 'generate_lead', {
-            'event_category': 'engagement',
-            'event_label': pacote || 'Contato Geral',
-            'value': orcamentoValue
-          });
-        }
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', {
-            content_name: pacote || 'Contato Geral',
-            value: orcamentoValue,
-            currency: 'BRL'
-          });
-        }
+          if (typeof gtag === "function") {
+            gtag("event", "generate_lead", {
+              event_category: "engagement",
+              event_label: pacote || "Contato Geral",
+              value: orcamentoValue,
+            });
+          }
+          if (typeof fbq === "function") {
+            fbq("track", "Lead", {
+              content_name: pacote || "Contato Geral",
+              value: orcamentoValue,
+              currency: "BRL",
+            });
+          }
 
-        // Open WhatsApp
-        window.open(whatsappUrl, '_blank');
+          // Open WhatsApp
+          window.open(whatsappUrl, "_blank");
 
-        // Update UI
-        form.innerHTML = `
+          // Update UI
+          form.innerHTML = `
           <div class="success-message" style="text-align: center; padding: 20px;">
             <h3 style="color: var(--gold-strong);">Solicitação Recebida!</h3>
             <p>Se o WhatsApp não abriu automaticamente, <a href="${whatsappUrl}" target="_blank" style="text-decoration: underline;">clique aqui</a>.</p>
           </div>
         `;
-      })
-      .catch((error) => {
-        console.error('Submission error (Netlify):', error);
-        // Fallback: Construct message and open WhatsApp anyway
-        const nome = formData.get('nome');
-        const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=Ol%C3%A1%2C%20sou%20${encodeURIComponent(nome)}.%20Tive%20um%20problema%20no%20envio%20do%20form%2C%20mas%20gostaria%20de%20um%20or%C3%A7amento.`;
-        window.open(whatsappUrl, '_blank');
+        })
+        .catch((error) => {
+          console.error("Submission error (Netlify):", error);
+          // Fallback: Construct message and open WhatsApp anyway
+          const nome = formData.get("nome");
+          const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=Ol%C3%A1%2C%20sou%20${encodeURIComponent(nome)}.%20Tive%20um%20problema%20no%20envio%20do%20form%2C%20mas%20gostaria%20de%20um%20or%C3%A7amento.`;
+          window.open(whatsappUrl, "_blank");
 
-        form.innerHTML = `
+          form.innerHTML = `
           <div class="success-message" style="text-align: center; padding: 20px;">
             <h3 style="color: var(--gold-strong);">Redirecionando...</h3>
             <p>Houve um erro no nosso servidor, mas estamos te levando para o WhatsApp!</p>
             <p><a href="${whatsappUrl}" target="_blank" style="text-decoration: underline;">Clique aqui se não abrir.</a></p>
           </div>
         `;
-      });
+        });
     });
   }
 });
