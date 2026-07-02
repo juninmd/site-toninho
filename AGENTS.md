@@ -1,10 +1,34 @@
-```markdown
-# AGENTS.md - AI Coding Agent Guidelines
+# AGENTS.md - site-toninho
 
+<<<<<<< Updated upstream
 These guidelines outline the specific requirements for all AI coding agent development within this repository. Strict adherence to these principles is mandatory for the success of the project.
+=======
+## Tech Stack
+- **Language:** HTML5, CSS3, JavaScript (ES6+)
+- **Styling:** Vanilla CSS (custom.css)
+- **Build:** Static files, No bundler
+- **CI/CD:** GitHub Actions + ArgoCD
+- **Infra:** Docker (Nginx) + K3s
+>>>>>>> Stashed changes
 
-## 1. DRY (Don't Repeat Yourself)
+## Project Structure
+```
+├── index.html          # Main page
+├── custom.css          # Styles
+├── script.js           # JavaScript
+├── fotoAntonio.jpg     # Profile photo
+├── video.mp4           # Background video
+├── Dockerfile          # Nginx container
+├── netlify.toml        # Netlify config
+├── _headers            # Security headers
+├── _redirects          # URL redirects
+├── sitemap.xml         # SEO sitemap
+├── robots.txt          # Crawler rules
+├── package.json        # html-validate dep
+└── SEO_KEYWORDS.md     # SEO keywords
+```
 
+<<<<<<< Updated upstream
 - All code segments, functions, and classes should have a single, well-defined purpose.
 - Avoid duplication of logic and data structures across multiple files.
 - Refactor existing code whenever possible to simplify and consolidate functionality.
@@ -75,3 +99,13 @@ These guidelines outline the specific requirements for all AI coding agent devel
 
 These guidelines are critical to ensure the quality, maintainability, and stability of the AGENTS.md repository. Any deviation from these standards will be subject to review and potential rejection.
 ```
+=======
+## Commands
+```bash
+npm run build     # Copy files to dist/
+npm test          # html-validate index.html
+```
+
+## URL
+Production: https://site-toninho.antonio-code.duckdns.org
+>>>>>>> Stashed changes
