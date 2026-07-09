@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ctaBtn.classList.add("lightbox-cta");
   const ctaIcon = document.createElement("i");
   ctaIcon.classList.add("fab", "fa-whatsapp");
-  ctaBtn.append(ctaIcon, " Quero um orçamento");
+  ctaBtn.append(ctaIcon, " Garantir minha data no WhatsApp");
   ctaBtn.target = "_blank";
   ctaBtn.rel = "noopener noreferrer";
   lightbox.appendChild(ctaBtn);
