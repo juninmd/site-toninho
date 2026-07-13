@@ -389,6 +389,14 @@ a {
   animation: pulse-gold 2s infinite;
 }
 
+.btn-form-submit {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-form-submit:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(198, 161, 91, 0.4);
+}
+
 .contact-section {
   padding-bottom: 100px;
 }
@@ -485,6 +493,18 @@ a {
 }
 
 /* Sticky WhatsApp Button */
+@keyframes pulse-whatsapp {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
@@ -502,11 +522,13 @@ a {
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-size: 36px;
   text-decoration: none;
+  animation: pulse-whatsapp 2s infinite;
 }
 .whatsapp-float:hover {
   transform: scale(1.1) rotate(10deg);
   color: #fff;
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  animation: none;
 }
 
 /* Lightbox Styles */
@@ -638,6 +660,15 @@ a {
   line-height: 1.6;
   border-top: 1px solid #f0f0f5;
   padding-top: 12px;
+}
+
+details.faq-item summary ~ * {
+  animation: sweep .3s ease-in-out;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; transform: translateY(-10px)}
+  100%  {opacity: 1; transform: translateY(0)}
 }
 
 @media (max-width: 920px) {
