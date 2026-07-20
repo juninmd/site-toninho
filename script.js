@@ -150,6 +150,31 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // WhatsApp Input Formatting Mask
+    const whatsappInput = form.querySelector('input[name="whatsapp"]');
+    if (whatsappInput) {
+      whatsappInput.addEventListener("input", (e) => {
+        let val = e.target.value.replace(/\D/g, "");
+        if (val.length > 11) {
+          val = val.slice(0, 11);
+        }
+
+        let formatted = val;
+        if (val.length > 2) {
+          formatted = `(${val.slice(0, 2)}) `;
+          if (val.length === 11) {
+            formatted += `${val.slice(2, 7)}-${val.slice(7)}`;
+          } else if (val.length > 6) {
+            formatted += `${val.slice(2, 6)}-${val.slice(6)}`;
+          } else {
+            formatted += val.slice(2);
+          }
+        }
+
+        e.target.value = formatted;
+      });
+    }
+
     // Form Dual Capture Logic
     form.addEventListener("submit", (e) => {
       e.preventDefault();
