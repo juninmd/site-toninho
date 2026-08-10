@@ -867,3 +867,84 @@ details.faq-item summary ~ * {
     transform: translateY(-50%) translateX(-5px);
   }
 }
+
+/* Mobile Fixed CTA Bar */
+.mobile-cta-bar {
+  display: none; /* Hidden on desktop */
+}
+
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 12px 20px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .mobile-cta-bar .btn {
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 10px rgba(198, 161, 91, 0.3);
+  }
+
+  .whatsapp-float {
+    bottom: 80px; /* Raise WhatsApp button above the bar on mobile */
+  }
+}
+
+/* Review Badge */
+.review-badge {
+  display: inline-block;
+  background: rgba(198, 161, 91, 0.1);
+  color: var(--gold);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  border: 1px solid rgba(198, 161, 91, 0.3);
+}
+
+/* Section Como Funciona */
+.how-it-works-section {
+  background: #111;
+  text-align: center;
+}
+.how-it-works-title {
+  color: var(--gold);
+}
+.how-it-works-desc {
+  margin-bottom: 40px;
+  color: #ccc;
+}
+.how-it-works-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.how-it-works-card {
+  background: #1a1a20;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+.how-it-works-icon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+.how-it-works-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.how-it-works-card p {
+  font-size: 0.9rem;
+  color: #bbb;
+}
