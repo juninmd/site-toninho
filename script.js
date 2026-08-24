@@ -282,4 +282,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
   }
+
+  // --- Exit Intent Popup Logic ---
+  let exitPopupShown = false;
+  const exitPopup = document.getElementById("exit-popup");
+  const closeExitPopupBtn = document.getElementById("close-exit-popup");
+  const exitPopupFormLink = document.getElementById("exit-popup-form-link");
+
+  if (exitPopup && closeExitPopupBtn) {
+    // Show popup when mouse leaves the viewport at the top
+    document.addEventListener("mouseleave", (e) => {
+      if (e.clientY <= 0 && !exitPopupShown) {
+        exitPopup.classList.add("show");
+        exitPopupShown = true;
+      }
+    });
+
+    // Close popup logic
+    const closePopup = () => {
+      exitPopup.classList.remove("show");
+    };
+
+    closeExitPopupBtn.addEventListener("click", closePopup);
+
+    if (exitPopupFormLink) {
+        exitPopupFormLink.addEventListener("click", closePopup);
+    }
+
+    // Close when clicking outside the content
+    exitPopup.addEventListener("click", (e) => {
+      if (e.target === exitPopup) {
+        closePopup();
+      }
+    });
+  }
+
 });
