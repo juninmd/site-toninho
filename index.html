@@ -417,6 +417,27 @@
               </div>
             </article>
           </div>
+
+          <div style="margin-top: 40px; text-align: center; border-top: 1px solid #efeae4; padding-top: 40px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--gold);">Personalize seu Pacote (Adicionais)</h3>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left;">
+              <div class="card" style="padding: 20px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <h4><i class="fas fa-book-open" style="color: var(--gold);"></i> Álbum Extra (Pais)</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Mini-álbuns para presentear os pais (20x20).</p>
+                <p style="font-weight: bold; color: var(--text);">R$ 450 <span style="font-size: 0.8rem; font-weight: 400;">/cada</span></p>
+              </div>
+              <div class="card" style="padding: 20px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <h4><i class="fas fa-video" style="color: var(--gold);"></i> Same Day Edit</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Trailer do casamento exibido durante a festa.</p>
+                <p style="font-weight: bold; color: var(--text);">R$ 890</p>
+              </div>
+              <div class="card" style="padding: 20px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <h4><i class="fas fa-plane" style="color: var(--gold);"></i> Destination Wedding</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">Cobertura fotográfica para fora de Franca/SP.</p>
+                <p style="font-weight: bold; color: var(--text);">Sob Consulta</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1124,6 +1145,20 @@
     <!-- Mobile Fixed CTA Bar -->
     <div class="mobile-cta-bar">
       <a href="#contato" class="btn btn-primary btn-block">Pedir Orçamento Agora</a>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exit-popup" class="exit-popup">
+      <div class="exit-popup-content">
+        <button type="button" id="close-exit-popup" class="close-exit-popup" aria-label="Fechar Popup">&times;</button>
+        <div style="font-size: 3rem; margin-bottom: 10px;">🎁</div>
+        <h2 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--gold);">Espera! Não vá ainda...</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 20px;">Temos uma oferta exclusiva para o seu grande dia. Ganhe <strong>um Álbum de Fotos Extra</strong> no fechamento do pacote hoje!</p>
+        <a href="https://wa.me/5516999999999?text=Ol%C3%A1%2C%20estava%20saindo%20do%20site%20mas%20vi%20a%20oferta%20do%20%C3%81lbum%20Extra!%20Gostaria%20de%20aproveitar." class="btn btn-primary btn-block" style="margin-bottom: 15px;" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-whatsapp"></i> Pegar Meu Bônus no WhatsApp
+        </a>
+        <a href="#contato" class="btn btn-ghost btn-block" id="exit-popup-form-link">Solicitar Orçamento Agora</a>
+      </div>
     </div>
 
     <script src="script.js"></script>
