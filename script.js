@@ -317,4 +317,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- Countdown Timer Logic ---
+  const timerElement = document.getElementById("countdown-timer");
+  if (timerElement) {
+    // Set timer for 30 minutes from now
+    let timeRemaining = 30 * 60;
+
+    // Attempt to retrieve from sessionStorage
+    const storedTime = sessionStorage.getItem("toninho_countdown");
+    if (storedTime && !isNaN(storedTime) && storedTime > 0) {
+      timeRemaining = parseInt(storedTime, 10);
+    }
+
+    const updateTimer = () => {
+      const minutes = Math.floor(timeRemaining / 60);
+      let seconds = timeRemaining % 60;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      timerElement.textContent = `${minutes}:${seconds}`;
+
+      if (timeRemaining > 0) {
+        timeRemaining--;
+        sessionStorage.setItem("toninho_countdown", timeRemaining);
+      } else {
+        clearInterval(timerInterval);
+        timerElement.textContent = "Expirado";
+      }
+    };
+
+    updateTimer(); // Initial call
+    const timerInterval = setInterval(updateTimer, 1000);
+  }
+
 });
