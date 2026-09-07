@@ -735,6 +735,17 @@ details.faq-item summary ~ * {
 
 /* --- New Optimizations --- */
 
+.countdown-timer {
+  font-weight: 700;
+  color: #ff3b30;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
 /* Portfolio Hover Effect */
 .portfolio-card::after {
   content: "\f00e"; /* fa-search-plus */
