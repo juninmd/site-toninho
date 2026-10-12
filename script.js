@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerText;
-      submitBtn.innerText = "Enviando...";
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       submitBtn.disabled = true;
 
       const formData = new FormData(form);
