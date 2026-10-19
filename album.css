@@ -1,0 +1,194 @@
+/* Álbum 3D do portfólio. As páginas são montadas pelo album.js a partir dos
+   cards do portfólio; este arquivo só cuida da aparência e da animação. */
+
+.album {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0 0 24px;
+  padding: clamp(24px, 5vw, 48px) 16px 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  perspective: 1800px;
+  background: radial-gradient(ellipse at 50% 30%, #4a3526, #1d130c 75%);
+}
+.album[hidden] { display: none; }
+
+/* Luz de mesa que acompanha o cursor */
+.album-spot {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: radial-gradient(circle 220px at var(--x, 50%) var(--y, 40%), rgba(255, 225, 160, 0.17), transparent 70%);
+}
+
+.album-book {
+  position: relative;
+  width: min(100%, 640px);
+  aspect-ratio: 1.5 / 1;
+  transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(0.65, 0.05, 0.25, 1);
+}
+/* Fechado, a capa fica no centro; aberto até o fim, o verso fica no centro */
+.album-book[data-pos="start"] { transform: translateX(-25%) rotateX(8deg); }
+.album-book[data-pos="mid"] { transform: rotateX(8deg); }
+.album-book[data-pos="end"] { transform: translateX(25%) rotateX(8deg); }
+
+.album-end {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, #3b2a1f, #2a1d15);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.5);
+}
+.album-end-l { left: 0; border-radius: 8px 0 0 8px; }
+.album-end-r { right: 0; border-radius: 0 8px 8px 0; }
+
+.album-leaf {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 1.1s cubic-bezier(0.65, 0.05, 0.25, 1);
+  cursor: pointer;
+}
+.album-leaf.is-flipped { transform: rotateY(-180deg); }
+/* A página ao lado cede um pouco ao passar o mouse, convidando ao clique */
+.album-leaf.is-edge:not(.is-flipped):hover { transform: rotateY(-9deg); }
+.album-leaf.is-edge.is-flipped:hover { transform: rotateY(-171deg); }
+
+.album-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  padding: 7%;
+  overflow: hidden;
+  background: #f6f0e4;
+  color: #2a2118;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.album-front {
+  border-radius: 0 6px 6px 0;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent 12%);
+}
+.album-back {
+  transform: rotateY(180deg);
+  border-radius: 6px 0 0 6px;
+  background-image: linear-gradient(270deg, rgba(0, 0, 0, 0.2), transparent 12%);
+}
+.album-cover {
+  justify-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #3a2a20, #1f1510);
+  color: #e6c27a;
+}
+.album-foil {
+  font: 700 clamp(22px, 4.6vw, 36px) / 1.15 "Playfair Display", serif;
+  background: linear-gradient(100deg, #8f6c2c 20%, #f6e2a8 45%, #c6a15b 60%, #8f6c2c 80%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: album-foil 5s linear infinite;
+}
+.album-face small {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.album-face h3 { font-size: clamp(18px, 3.2vw, 26px); color: #2a2118; }
+.album-face p { font-size: clamp(11px, 1.7vw, 14px); line-height: 1.5; color: #4a3d2e; }
+.album-face .btn { justify-self: start; font-size: 12px; padding: 8px 14px; }
+
+/* Foto colada no papel, com borda de polaroide e legenda à mão */
+.album-photo {
+  position: relative;
+  margin: 0;
+  padding: 6px 6px 24px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: rotate(var(--tilt, -1.5deg));
+}
+.album-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.4;
+  object-fit: cover;
+}
+.album-photo figcaption {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 3px;
+  text-align: center;
+  font: 500 15px "Caveat", cursive;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #4a3a2a;
+}
+
+.album-nav {
+  position: relative;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+.album-step {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4f1ea;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 99px;
+  padding: 8px 16px;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.album-step:disabled { opacity: 0.35; cursor: default; }
+.album-step:focus-visible,
+.album-dots button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.album-dots { display: flex; gap: 8px; }
+.album-dots button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+.album-dots button[aria-current="true"] { background: var(--gold); transform: scale(1.3); }
+
+.album-toggle { display: block; margin: 0 auto 28px; }
+
+@keyframes album-foil { to { background-position: -250% 0; } }
+
+@media (max-width: 560px) {
+  .album-book { aspect-ratio: 1.1 / 1; }
+  .album-photo figcaption { font-size: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .album-book,
+  .album-leaf { transition: none; }
+  .album-foil { animation: none; }
+}
+
+.album .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
