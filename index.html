@@ -54,6 +54,8 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="custom.css" />
+    <link rel="stylesheet" href="hero-cinema.css" />
+    <link rel="stylesheet" href="album.css" />
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -265,6 +267,11 @@
           />
         </video>
         <div class="hero-overlay"></div>
+        <div class="cine-bar cine-bar-top" aria-hidden="true"></div>
+        <div class="cine-bar cine-bar-bottom" aria-hidden="true"></div>
+        <div class="cine-leak" aria-hidden="true"></div>
+        <canvas class="cine-grain" width="256" height="256" aria-hidden="true"></canvas>
+        <div class="cine-tc" aria-hidden="true"><i></i><span>00:00:00:00</span></div>
         <div class="hero-content">
           <p class="kicker">Fotografia &amp; Cinema 4K • Franca-SP</p>
           <h1>Fotógrafo de Casamento: Sua História, Uma Obra de Arte.</h1>
@@ -331,6 +338,10 @@
             Clique nas imagens para ampliar a fotografia profissional.
           </p>
 
+          <div id="album" class="album" role="group" aria-roledescription="álbum de fotos" aria-label="Álbum de fotos do portfólio" hidden></div>
+          <button type="button" id="album-toggle" class="btn btn-ghost album-toggle" aria-expanded="false" aria-controls="portfolio-all" hidden>Ver todas as fotos e filtrar</button>
+
+          <div id="portfolio-all">
           <div class="portfolio-filters">
             <button type="button" class="filter-btn active" data-filter="all">
               Todos
@@ -453,6 +464,7 @@
                 </p>
               </div>
             </article>
+          </div>
           </div>
 
           <div style="margin-top: 40px; text-align: center; border-top: 1px solid #efeae4; padding-top: 40px;">
@@ -1248,5 +1260,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="hero-cinema.js"></script>
+    <script src="album.js"></script>
   </body>
 </html>
