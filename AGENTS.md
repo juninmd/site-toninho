@@ -4,26 +4,34 @@ These guidelines outline the specific requirements for all AI coding agent devel
 
 ## Tech Stack
 - **Language:** HTML5, CSS3, JavaScript (ES6+)
-- **Styling:** Vanilla CSS (custom.css)
+- **Styling:** Vanilla CSS (`custom.css`, `hero-cinema.css`, `album.css`)
 - **Build:** Static files, No bundler
 - **CI/CD:** GitHub Actions + ArgoCD
 - **Infra:** Docker (Nginx) + K3s
 
 ## Project Structure
 ```
-├── index.html          # Main page
-├── custom.css          # Styles
-├── script.js           # JavaScript
+├── index.html          # Main landing page
+├── custom.css          # Global styles and layout
+├── hero-cinema.css     # Hero cinema video section styles
+├── album.css           # Album modal and gallery styles
+├── script.js           # Main JavaScript (form, lightbox, filters)
+├── hero-cinema.js      # Hero video player logic
+├── album.js           # Album modal interactive logic
+├── captions.vtt        # Accessibility video captions
 ├── fotoAntonio.jpg     # Profile photo
-├── video.mp4           # Background video
-├── Dockerfile          # Nginx container
-├── netlify.toml        # Netlify config
+├── video.mp4           # Background hero video
+├── Dockerfile          # Nginx container build
+├── netlify.toml        # Netlify configuration
 ├── _headers            # Security headers
-├── _redirects          # URL redirects
+├── _redirects          # URL redirects (e.g., /whatsapp)
 ├── sitemap.xml         # SEO sitemap
 ├── robots.txt          # Crawler rules
-├── package.json        # html-validate dep
-└── SEO_KEYWORDS.md     # SEO keywords
+├── package.json        # Dependencies and scripts
+├── package-lock.json   # Locked dependencies
+├── LICENSE             # MIT License
+├── SEO_KEYWORDS.md     # SEO keywords reference
+└── test-docs.js        # Documentation validation test
 ```
 
 - All code segments, functions, and classes should have a single, well-defined purpose.
@@ -62,11 +70,9 @@ These guidelines outline the specific requirements for all AI coding agent devel
 
 ## 6. Testing Strategy
 
-- **Unit Tests:** All code must be thoroughly unit tested to verify individual components.
-- **Integration Tests:** Integrate and test the interaction of multiple modules.
-- **Test Coverage:** Aim for at least 80% code coverage.
-- **Test Driven Development:** Unit tests should be written _before_ code implementation.
-- **Mocking/Stubbing:** **DO NOT USE MOCKS.** All dependencies (services, databases, external APIs) must be mocked or stubbed to allow for complete and reproducible tests.
+- **HTML Validation:** HTML standard compliance verification via `html-validate` on `index.html`.
+- **Documentation Verification:** Automated verification script (`test-docs.js`) executed during `npm test` to ensure all `.js`, `.css`, and `.html` root files are documented in `README.md`.
+- **End-to-End (E2E) & Visual Testing:** Playwright automated scripts (e.g., `verify.py`) for visual inspection and interactive user flows (lightbox, multi-step form, filter buttons).
 
 ## 7. Code Standards & Formatting
 
@@ -84,9 +90,8 @@ These guidelines outline the specific requirements for all AI coding agent devel
 
 ## 9. Deliverables
 
-- All files must be saved in the `AGENTS.md` directory.
-- Documented unit tests for all code segments.
-- Comprehensive code review performed by at least two team members.
+- Documented unit / validation tests for all code segments.
+- Comprehensive code review performed prior to merging.
 
 ## 10. Future Considerations
 
@@ -99,7 +104,7 @@ These guidelines are critical to ensure the quality, maintainability, and stabil
 ## Commands
 ```bash
 npm run build     # Copy files to dist/
-npm test          # html-validate index.html
+npm test          # html-validate index.html && node test-docs.js
 ```
 
 ## URL

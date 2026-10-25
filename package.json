@@ -5,7 +5,7 @@
   "description": "Portfolio site for Toninho Fotos e Filmagens",
   "scripts": {
     "build": "rm -rf dist && mkdir -p dist && cp index.html custom.css hero-cinema.css album.css script.js hero-cinema.js album.js fotoAntonio.jpg video.mp4 robots.txt sitemap.xml _redirects _headers dist/",
-    "test": "html-validate index.html"
+    "test": "html-validate index.html && node test-docs.js"
   },
   "devDependencies": {
     "html-validate": "^11.16.4"
