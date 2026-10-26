@@ -8,6 +8,6 @@
     "test": "html-validate index.html && node test-docs.js"
   },
   "devDependencies": {
-    "html-validate": "^11.17.0"
+    "html-validate": "^11.16.4"
   }
 }
