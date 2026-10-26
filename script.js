@@ -317,6 +317,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // --- WhatsApp Link Tracking (Analytics/Pixel) ---
+  const trackWhatsAppClick = (event) => {
+    let target = event.target;
+    // Find the closest anchor tag
+    while (target && target.tagName !== "A") {
+      target = target.parentElement;
+    }
+
+    if (target && target.href && target.href.includes("wa.me")) {
+      const isDynamic = target.getAttribute("data-dynamic") === "true";
+      // Ensure we use the central number unless it's dynamically generated
+      if (!isDynamic && !target.href.includes(CONFIG.whatsappNumber)) {
+        const urlParams = new URL(target.href).search;
+        target.href = `https://wa.me/${CONFIG.whatsappNumber}${urlParams}`;
+      }
+
+      if (typeof gtag === "function") {
+        gtag("event", "click_whatsapp", {
+          event_category: "engagement",
+          event_label: target.innerText || "WhatsApp Icon",
+        });
+      }
+      if (typeof fbq === "function") {
+        fbq("trackCustom", "ClickWhatsApp", {
+          content_name: target.innerText || "WhatsApp Icon",
+        });
+      }
+    }
+  };
+
+  document.body.addEventListener("click", trackWhatsAppClick);
+
   // --- Countdown Timer Logic ---
   const timerElement = document.getElementById("countdown-timer");
   if (timerElement) {
