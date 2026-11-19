@@ -11,7 +11,11 @@ window.selectPackage = function (pacoteName) {
     select.value = pacoteName;
     const contactSection = document.getElementById("contato");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      contactSection.scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
     }
   }
 };
