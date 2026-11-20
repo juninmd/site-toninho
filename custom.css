@@ -556,6 +556,11 @@ a {
   cursor: zoom-out;
   padding: 20px;
 }
+.portfolio-card:focus-visible,
+#lightbox .close-lightbox:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
 #lightbox.active {
   display: flex;
   animation: fadeIn 0.3s ease forwards;

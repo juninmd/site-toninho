@@ -47,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Lightbox Implementation ---
   const lightbox = document.createElement("div");
   lightbox.id = "lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-label", "Foto do portfólio");
 
   const closeBtn = document.createElement("button");
   closeBtn.classList.add("close-lightbox");
@@ -67,7 +70,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Use .portfolio-card click to handle overlay issues
   const cards = document.querySelectorAll(".portfolio-card");
+  let opener = null;
+  const closeLightbox = () => {
+    lightbox.classList.remove("active");
+    // Back to the card that opened it, so keyboard users keep their place
+    opener?.focus();
+    opener = null;
+  };
   cards.forEach((card) => {
+    // Cards are <article>: without this they can only be opened with a mouse
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        card.click();
+      }
+    });
     card.addEventListener("click", () => {
       const img = card.querySelector("img");
       const title = card.querySelector("h3")
@@ -91,14 +110,20 @@ document.addEventListener("DOMContentLoaded", () => {
           `Olá, estava olhando o portfólio no site e amei a foto "${title}". Gostaria de um orçamento!`,
         );
         ctaBtn.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${msg}`;
+        opener = card;
+        closeBtn.focus();
       }
     });
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("active")) closeLightbox();
   });
 
   // Close lightbox on click outside image or close button
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox || e.target === closeBtn) {
-      lightbox.classList.remove("active");
+      closeLightbox();
     }
   });
 
