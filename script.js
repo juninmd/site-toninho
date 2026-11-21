@@ -28,8 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       // Remove active from all
-      filterBtns.forEach((b) => b.classList.remove("active"));
+      filterBtns.forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      });
       btn.classList.add("active");
+      btn.setAttribute("aria-pressed", "true");
 
       const filter = btn.getAttribute("data-filter");
 
@@ -96,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lightbox.classList.add("active");
         const newImg = document.createElement("img");
         newImg.src = img.src;
+        newImg.alt = img.alt || title;
 
         // Clear previous image
         const oldImg = lightbox.querySelector("img");
