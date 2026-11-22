@@ -1,114 +1,47 @@
-# AGENTS.md - site-toninho
+# AGENTS.md
 
-These guidelines outline the specific requirements for all AI coding agent development within this repository. Strict adherence to these principles is mandatory for the success of the project.
+site-toninho: a static personal site (HTML, CSS, vanilla JS), deployed to production at https://site-toninho.antonio-code.duckdns.org. No bundler, no framework.
 
-## Tech Stack
-- **Language:** HTML5, CSS3, JavaScript (ES6+)
-- **Styling:** Vanilla CSS (`custom.css`, `hero-cinema.css`, `album.css`)
-- **Build:** Static files, No bundler
-- **CI/CD:** GitHub Actions + ArgoCD
-- **Infra:** Docker (Nginx) + K3s
+## Stack
 
-## Project Structure
-```
-├── index.html          # Main landing page
-├── custom.css          # Global styles and layout
-├── hero-cinema.css     # Hero cinema video section styles
-├── album.css           # Album modal and gallery styles
-├── script.js           # Main JavaScript (form, lightbox, filters)
-├── hero-cinema.js      # Hero video player logic
-├── album.js           # Album modal interactive logic
-├── captions.vtt        # Accessibility video captions
-├── fotoAntonio.jpg     # Profile photo
-├── video.mp4           # Background hero video
-├── Dockerfile          # Nginx container build
-├── netlify.toml        # Netlify configuration
-├── _headers            # Security headers
-├── _redirects          # URL redirects (e.g., /whatsapp)
-├── sitemap.xml         # SEO sitemap
-├── robots.txt          # Crawler rules
-├── package.json        # Dependencies and scripts
-├── package-lock.json   # Locked dependencies
-├── LICENSE             # MIT License
-├── SEO_KEYWORDS.md     # SEO keywords reference
-└── test-docs.js        # Documentation validation test
-```
-
-- All code segments, functions, and classes should have a single, well-defined purpose.
-- Avoid duplication of logic and data structures across multiple files.
-- Refactor existing code whenever possible to simplify and consolidate functionality.
-
-## 2. KISS (Keep It Simple, Stupid)
-
-- Prioritize clarity and readability over complex or unnecessarily verbose solutions.
-- Strive for minimal code that achieves the desired outcome.
-- Use appropriate data structures and algorithms for the task.
-- Favor straightforward implementation over overly clever, potentially error-prone solutions.
-
-## 3. SOLID Principles
-
-- **Single Responsibility Principle:** Each class/module should have one, and only one, reason to change.
-- **Open/Closed Principle:** The system should be extensible without modifying the core implementation.
-- **Liskov Substitution Principle:** Subclasses should be substitutable for their base classes without altering the correctness of the program.
-- **Interface Segregation Principle:** Clients should not be forced to depend on methods they do not use.
-- **Dependency Inversion Principle:** High-level modules should be dependent on abstractions, not concrete implementations.
-
-## 4. YAGNI (You Aren't Gonna Need It)
-
-- Avoid implementing features or functionalities that are not currently required.
-- Focus solely on the immediate task and avoid unnecessary complexity.
-- Defer implementation of advanced features until they are explicitly requested.
-
-## 5. Development Process & Code Structure
-
-- **File Size Limit:** Each file must be no more than 180 lines of code.
-- **Modularization:** Divide code into logically related modules/components.
-- **Comments:** Provide clear and concise comments explaining the _why_ behind code, not just the _what_.
-- **Naming Conventions:** Follow consistent naming conventions (e.g., snake_case).
-- **Documentation:** Provide brief documentation for each class/function/module to aid understanding.
-- **Error Handling:** Implement basic error handling and logging for robustness.
-
-## 6. Testing Strategy
-
-- **HTML Validation:** HTML standard compliance verification via `html-validate` on `index.html`.
-- **Documentation Verification:** Automated verification script (`test-docs.js`) executed during `npm test` to ensure all `.js`, `.css`, and `.html` root files are documented in `README.md`.
-- **End-to-End (E2E) & Visual Testing:** Playwright automated scripts (e.g., `verify.py`) for visual inspection and interactive user flows (lightbox, multi-step form, filter buttons).
-
-## 7. Code Standards & Formatting
-
-- **Indentation:** Use 2 spaces for indentation.
-- **Line Length:** Keep lines of code under 120 characters.
-- **Whitespace:** Use consistent whitespace around operators and keywords.
-- **Blank Lines:** Separate logical blocks of code with blank lines.
-
-## 8. Specific Requirements (Examples - Modify as needed)
-
-- **Data Structures:** Use appropriate data structures for each task (e.g., dictionaries, lists, trees).
-- **Algorithms:** Utilize efficient algorithms where applicable.
-- **API Design:** Follow a consistent API design philosophy for future expansion.
-- **Logging:** Implement basic logging to track events and errors.
-
-## 9. Deliverables
-
-- Documented unit / validation tests for all code segments.
-- Comprehensive code review performed prior to merging.
-
-## 10. Future Considerations
-
-- Add dependency injection framework to manage dependencies.
-- Implement a basic version control system.
-- Consider adding support for asynchronous operations.
-
-These guidelines are critical to ensure the quality, maintainability, and stability of the AGENTS.md repository. Any deviation from these standards will be subject to review and potential rejection.
+- HTML5, CSS3 (`custom.css`, `hero-cinema.css`, `album.css`), JavaScript ES6+ (`script.js`, `hero-cinema.js`, `album.js`).
+- Tests: `html-validate` and `test-docs.js`. Build: copy of the public files into `dist/`.
+- CI: GitHub Actions (`.github/workflows/`: `validate.yml`, `pages.yml`, `sast.yml`, `security.yml`, `release-drafter.yml`).
 
 ## Commands
+
 ```bash
-npm run build     # Copy files to dist/
-npm test          # html-validate index.html && node test-docs.js
+npm run build    # copy the public files to dist/
+npm test         # html-validate index.html && node test-docs.js
 ```
 
-## URL
-Production: https://site-toninho.antonio-code.duckdns.org
+Run `npm install` first, since `html-validate` is a dev dependency.
+
+## Structure
+
+- `index.html`: landing page. `custom.css`: global layout. `script.js`: form, lightbox, filters.
+- `hero-cinema.{css,js}`: hero video. `album.{css,js}`: album modal and gallery.
+- `captions.vtt`, `video.mp4`, `fotoAntonio.jpg`: media served by the page.
+- `_headers` (security headers), `_redirects` (e.g. `/whatsapp`), `netlify.toml`: hosting config.
+- `sitemap.xml`, `robots.txt`: SEO. `SEO_KEYWORDS.md`: keyword reference.
+- `test-docs.js`: checks that every root `.js`, `.css`, and `.html` file is named in `README.md`.
+
+## Conventions
+
+- Each file stays under 180 lines of code. Split by responsibility.
+- Two-space indentation, lines under 120 characters, blank lines between logical blocks.
+- Comments say why, not what. Each module has a short description.
+- No duplicated logic or data across files. Remove code your change makes dead.
+- Add a new root `.js`, `.css`, or `.html` file? Also name it in `README.md`, or `npm test` fails.
+- Keep to what is asked: no speculative features or abstractions.
+- Validate HTML before finishing: `npm test` must pass.
+
+## Gotchas
+
+- The `Dockerfile` and the Nginx/K3s/ArgoCD setup described in `README.md` are not in this checkout. Do not assume they exist here.
+- The Playwright checks mentioned in `README.md` (`verify.py`) live outside the repo (`/home/jules/verification/`). They are not versioned here.
+- `_redirects` and `_headers` apply only where those hosts read them. Keep them in sync with production.
+- Keep `dist/` as build output only. Do not edit it by hand.
 
 <!-- base-actions-main-policy -->
 ## GitHub Actions — padrão obrigatório (@main)
